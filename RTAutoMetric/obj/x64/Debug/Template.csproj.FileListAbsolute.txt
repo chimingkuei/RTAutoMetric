@@ -1,0 +1,602 @@
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.exe.config
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.exe
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.pdb
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\MainWindow.g.cs
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\App.g.cs
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\MainWindow.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.g.resources
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.CopyComplete
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.exe
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.pdb
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\App.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+E:\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+E:\Template\Template\obj\x64\Debug\Language\en-US.baml
+E:\Template\Template\obj\x64\Debug\Language\zh-TW.baml
+E:\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+E:\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+E:\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+E:\Template\Template\obj\x64\Debug\MainWindow.g.cs
+E:\Template\Template\obj\x64\Debug\App.g.cs
+E:\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+E:\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+E:\Template\Template\obj\x64\Debug\Template.exe
+E:\Template\Template\obj\x64\Debug\Template.pdb
+E:\Template\Template\bin\x64\Debug\Template.exe.config
+E:\Template\Template\bin\x64\Debug\Template.exe
+E:\Template\Template\bin\x64\Debug\Template.pdb
+E:\Template\Template\bin\x64\Debug\HandyControl.dll
+E:\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+E:\Template\Template\bin\x64\Debug\HandyControl.xml
+E:\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+E:\Template\Template\obj\x64\Debug\App.baml
+E:\Template\Template\obj\x64\Debug\MainWindow.baml
+E:\Template\Template\obj\x64\Debug\Template.g.resources
+E:\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+E:\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+E:\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+E:\Template\Template\obj\x64\Debug\Template.csproj.CopyComplete
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\ButtonStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\SliderStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\TabControlStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Buffers.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Drawing.Common.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Memory.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.ValueTuple.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Buffers.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Memory.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.ValueTuple.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_Content.g.cs
+D:\Template\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+D:\Template\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+D:\Template\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+D:\Template\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+D:\Template\Template\bin\x64\Debug\Template.exe.config
+D:\Template\Template\bin\x64\Debug\Template.exe
+D:\Template\Template\bin\x64\Debug\Template.pdb
+D:\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+D:\Template\Template\bin\x64\Debug\OpenCvSharp.dll
+D:\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+D:\Template\Template\bin\x64\Debug\System.Buffers.dll
+D:\Template\Template\bin\x64\Debug\System.Drawing.Common.dll
+D:\Template\Template\bin\x64\Debug\System.Memory.dll
+D:\Template\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+D:\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Template\Template\bin\x64\Debug\System.ValueTuple.dll
+D:\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+D:\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+D:\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+D:\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+D:\Template\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+D:\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+D:\Template\Template\bin\x64\Debug\OpenCvSharp.xml
+D:\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+D:\Template\Template\bin\x64\Debug\System.Buffers.xml
+D:\Template\Template\bin\x64\Debug\System.Memory.xml
+D:\Template\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+D:\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Template\Template\bin\x64\Debug\System.ValueTuple.xml
+D:\Template\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+D:\Template\Template\obj\x64\Debug\UI\ButtonStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\SliderStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\TabControlStyles.baml
+D:\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+D:\Template\Template\obj\x64\Debug\MainWindow.g.cs
+D:\Template\Template\obj\x64\Debug\App.g.cs
+D:\Template\Template\obj\x64\Debug\Template_Content.g.cs
+D:\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+D:\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+D:\Template\Template\obj\x64\Debug\App.baml
+D:\Template\Template\obj\x64\Debug\MainWindow.baml
+D:\Template\Template\obj\x64\Debug\Template.g.resources
+D:\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+D:\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+D:\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+D:\Template\Template\obj\x64\Debug\Template.csproj.CopyComplete
+D:\Template\Template\obj\x64\Debug\Template.exe
+D:\Template\Template\obj\x64\Debug\Template.pdb
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Template.exe.config
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Template.exe
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Template.pdb
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\OpenCvSharp.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Buffers.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Drawing.Common.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Memory.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.ValueTuple.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\OpenCvSharp.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Buffers.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Memory.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\System.ValueTuple.xml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\ButtonStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\SliderStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\TabControlStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\MainWindow.g.cs
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\App.g.cs
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template_Content.g.cs
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\App.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\MainWindow.baml
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.g.resources
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.csproj.CopyComplete
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.exe
+C:\Data Disk\Chimingkuei\repos\Reference\C#\新增資料夾\Template\Template\obj\x64\Debug\Template.pdb
+C:\Data Disk\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.exe.config
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.exe
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.pdb
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Buffers.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Drawing.Common.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Memory.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.ValueTuple.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Buffers.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Memory.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.ValueTuple.xml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\ButtonStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\SliderStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\TabControlStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\MainWindow.g.cs
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\App.g.cs
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_Content.g.cs
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\App.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\MainWindow.baml
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.g.resources
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.CopyComplete
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.exe
+E:\Computer GPU2060 Backup\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.exe.config
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.exe
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Template.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Buffers.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Drawing.Common.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Memory.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.ValueTuple.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Buffers.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Memory.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.ValueTuple.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\ButtonStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\SliderStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\TabControlStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\MainWindow.g.cs
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\App.g.cs
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_Content.g.cs
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\App.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\MainWindow.baml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.g.resources
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.exe
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\obj\x64\Debug\Template.csproj.Up2Date
+E:\Temp\New Version Config\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Template.exe.config
+E:\Temp\New Version Config\Template\bin\x64\Debug\Template.exe
+E:\Temp\New Version Config\Template\bin\x64\Debug\Template.pdb
+E:\Temp\New Version Config\Template\bin\x64\Debug\Newtonsoft.Json.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\OpenCvSharp.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Buffers.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Drawing.Common.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Memory.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.ValueTuple.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\Newtonsoft.Json.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\OpenCvSharp.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Buffers.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Memory.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\System.ValueTuple.xml
+E:\Temp\New Version Config\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\ButtonStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\SliderStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\TabControlStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\MainWindow.g.cs
+E:\Temp\New Version Config\Template\obj\x64\Debug\App.g.cs
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template_Content.g.cs
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template_MarkupCompile.cache
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template_MarkupCompile.lref
+E:\Temp\New Version Config\Template\obj\x64\Debug\App.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\MainWindow.baml
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.g.resources
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.Properties.Resources.resources
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.csproj.Up2Date
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.exe
+E:\Temp\New Version Config\Template\obj\x64\Debug\Template.pdb
+E:\Temp\Template\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+E:\Temp\Template\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+E:\Temp\Template\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+E:\Temp\Template\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+E:\Temp\Template\Template\bin\x64\Debug\Template.exe.config
+E:\Temp\Template\Template\bin\x64\Debug\Template.exe
+E:\Temp\Template\Template\bin\x64\Debug\Template.pdb
+E:\Temp\Template\Template\bin\x64\Debug\Newtonsoft.Json.dll
+E:\Temp\Template\Template\bin\x64\Debug\OpenCvSharp.dll
+E:\Temp\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+E:\Temp\Template\Template\bin\x64\Debug\System.Buffers.dll
+E:\Temp\Template\Template\bin\x64\Debug\System.Drawing.Common.dll
+E:\Temp\Template\Template\bin\x64\Debug\System.Memory.dll
+E:\Temp\Template\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+E:\Temp\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Temp\Template\Template\bin\x64\Debug\System.ValueTuple.dll
+E:\Temp\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+E:\Temp\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+E:\Temp\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+E:\Temp\Template\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+E:\Temp\Template\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+E:\Temp\Template\Template\bin\x64\Debug\Newtonsoft.Json.xml
+E:\Temp\Template\Template\bin\x64\Debug\OpenCvSharp.xml
+E:\Temp\Template\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+E:\Temp\Template\Template\bin\x64\Debug\System.Buffers.xml
+E:\Temp\Template\Template\bin\x64\Debug\System.Memory.xml
+E:\Temp\Template\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+E:\Temp\Template\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Temp\Template\Template\bin\x64\Debug\System.ValueTuple.xml
+E:\Temp\Template\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+E:\Temp\Template\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+E:\Temp\Template\Template\obj\x64\Debug\UI\ButtonStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\SliderStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\TabControlStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+E:\Temp\Template\Template\obj\x64\Debug\MainWindow.g.cs
+E:\Temp\Template\Template\obj\x64\Debug\App.g.cs
+E:\Temp\Template\Template\obj\x64\Debug\Template_Content.g.cs
+E:\Temp\Template\Template\obj\x64\Debug\Template_MarkupCompile.cache
+E:\Temp\Template\Template\obj\x64\Debug\Template_MarkupCompile.lref
+E:\Temp\Template\Template\obj\x64\Debug\App.baml
+E:\Temp\Template\Template\obj\x64\Debug\MainWindow.baml
+E:\Temp\Template\Template\obj\x64\Debug\Template.g.resources
+E:\Temp\Template\Template\obj\x64\Debug\Template.Properties.Resources.resources
+E:\Temp\Template\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+E:\Temp\Template\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+E:\Temp\Template\Template\obj\x64\Debug\Template.csproj.Up2Date
+E:\Temp\Template\Template\obj\x64\Debug\Template.exe
+E:\Temp\Template\Template\obj\x64\Debug\Template.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\DataSphereX.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\DataSphereX.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\EPPlus.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\EPPlus.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\CamNexus.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\uEyeDotNet.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\CamNexus.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Basler.Pylon.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\CamNexus.dll.config
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\InnovaControls.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\InnovaControls.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\DimmerNexus.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\DimmerNexus.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\MySql.Data.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Google.Protobuf.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\ZstdSharp.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\BouncyCastle.Cryptography.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\K4os.Compression.LZ4.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.IO.Pipelines.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\K4os.Hash.xxHash.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\DataSphereX.dll.config
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\MySql.Data.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Google.Protobuf.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Google.Protobuf.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\K4os.Compression.LZ4.Streams.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\BouncyCastle.Cryptography.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\K4os.Compression.LZ4.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\System.IO.Pipelines.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\K4os.Hash.xxHash.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\TitanVision.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\TitanVision.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\TitanVision.dll.config
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\zxing.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\MathNet.Numerics.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\zxing.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\MathNet.Numerics.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\x86\leptonica-1.82.0.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\x86\tesseract50.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\x64\leptonica-1.82.0.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\x64\tesseract50.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\Tesseract.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\LiveCharts.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\LiveCharts.Wpf.dll
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\LiveCharts.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\LiveCharts.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\LiveCharts.Wpf.pdb
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\LiveCharts.Wpf.xml
+D:\Chimingkuei\repos\Reference\C#\Template\Template\bin\x64\Debug\netDxf.xml
+E:\Temp\Template\Template\bin\x64\Debug\netDxf.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\dll\x86\OpenCvSharpExtern.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\dll\x86\opencv_videoio_ffmpeg455.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\dll\x64\OpenCvSharpExtern.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\dll\x64\opencv_videoio_ffmpeg455_64.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Template.exe.config
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Template.exe
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Template.pdb
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Newtonsoft.Json.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\OpenCvSharp.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\OpenCvSharp.Extensions.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Buffers.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Drawing.Common.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Memory.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Numerics.Vectors.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.ValueTuple.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Xceed.Wpf.Toolkit.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\netDxf.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\Newtonsoft.Json.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\OpenCvSharp.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\OpenCvSharp.Extensions.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Buffers.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Memory.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Numerics.Vectors.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\System.ValueTuple.xml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\bin\x64\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.csproj.AssemblyReference.cache
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\ButtonStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\CheckBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\ComboBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\GroupBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\RadioButtonStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\SliderStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\TabControlStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\TextBoxStyles.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\MainWindow.g.cs
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\App.g.cs
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template_Content.g.cs
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template_MarkupCompile.cache
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template_MarkupCompile.lref
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\App.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\MainWindow.baml
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.g.resources
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.Properties.Resources.resources
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.csproj.GenerateResource.cache
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.csproj.CoreCompileInputs.cache
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.csproj.Up2Date
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.exe
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\Template.pdb
+D:\Chimingkuei\repos\Reference\C#\Template Lite\Template\obj\x64\Debug\UI\ToggleButtonStyles.baml
