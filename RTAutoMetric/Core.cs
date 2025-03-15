@@ -15,6 +15,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Input;
 using Newtonsoft.Json;
+using System.Windows;
 
 
 namespace RTAutoMetric
@@ -95,13 +96,18 @@ namespace RTAutoMetric
 
     class MouseActions
     {
-        #region Draw Mask
         public Canvas canvas = new Canvas();
-        public Polyline maskPath;
+        #region Draw Mask
+        public Polyline maskPath { get; set; }
         public bool isDrawing = false;
         public List<List<System.Windows.Point>> maskPaths = new List<List<System.Windows.Point>>();
-        public System.Windows.Media.Color color = System.Windows.Media.Color.FromArgb(120, 0, 0, 0);
-        public double thickness = 10;
+        public System.Windows.Media.Color color { get; set; }
+        public double thickness { get; set; }
+        public MouseActions(System.Windows.Media.Color _color, double _thickness)
+        {
+            color = _color;
+            thickness = _thickness;
+        }
 
         private Polyline PolylineAppearance(List<System.Windows.Point> points=null)
         {
@@ -109,9 +115,9 @@ namespace RTAutoMetric
             {
                 Stroke = new SolidColorBrush(color),
                 StrokeThickness = thickness,
-                StrokeLineJoin = PenLineJoin.Round,
                 StrokeStartLineCap = PenLineCap.Round,
-                StrokeEndLineCap = PenLineCap.Round
+                StrokeEndLineCap = PenLineCap.Round,
+                StrokeLineJoin = PenLineJoin.Round,
             };
             if (points?.Count > 0)
             {
@@ -226,20 +232,25 @@ namespace RTAutoMetric
         public List<TextBlock> tickLabels = new List<TextBlock>(); // 刻度數字
         public List<Line> completedTickMarks = new List<Line>(); // 紀錄刻度線
         public List<TextBlock> completedTickLabels = new List<TextBlock>(); // 紀錄刻度數字
+        public double capLength { get; set; } // 端點線長度
+        public double tickSpacing { get; set; } // 刻度間距
+        public double tickLength { get; set; }   // 刻度線長度
+        public MouseActions(double _capLength, double _tickSpacing, double _tickLength)
+        {
+            capLength = _capLength;
+            tickSpacing = _tickSpacing;
+            tickLength = _tickLength;
+    }
 
         private void UpdateEndpointCaps(Line cap, System.Windows.Point main, System.Windows.Point other)
         {
-            double capLength = 10; // 端點線長度
             double dx = other.X - main.X;
             double dy = other.Y - main.Y;
             double length = Math.Sqrt(dx * dx + dy * dy);
-
             if (length == 0) return; // 避免除以 0
-
             // 計算垂直方向向量
             double perpX = -dy / length * capLength;
             double perpY = dx / length * capLength;
-
             cap.X1 = main.X - perpX;
             cap.Y1 = main.Y - perpY;
             cap.X2 = main.X + perpX;
@@ -259,27 +270,18 @@ namespace RTAutoMetric
             }
             tickMarks.Clear();
             tickLabels.Clear();
-
-            double tickSpacing = 20; // 刻度間距
-            double tickLength = 5;   // 刻度線長度
             double dx = end.X - start.X;
             double dy = end.Y - start.Y;
             double length = Math.Sqrt(dx * dx + dy * dy);
-
             if (length == 0) return; // 避免除以 0
-
             double unitX = dx / length;
             double unitY = dy / length;
-
             double perpX = -unitY * tickLength;
             double perpY = unitX * tickLength;
-
             // **端點刻度數字** - 起點
             DrawTickMark(start, 0, perpX, perpY);
-
             // **端點刻度數字** - 終點
             DrawTickMark(end, (int)length, perpX, perpY);
-
             // **中間刻度**
             for (double d = tickSpacing; d < length; d += tickSpacing)
             {
@@ -303,17 +305,15 @@ namespace RTAutoMetric
             };
             canvas.Children.Add(tick);
             tickMarks.Add(tick);
-
             // 創建刻度數字
             TextBlock label = new TextBlock
             {
                 Text = value.ToString(),
                 FontSize = 8,
-                Foreground = System.Windows.Media.Brushes.Blue
+                Foreground = System.Windows.Media.Brushes.Black
             };
             canvas.Children.Add(label);
             tickLabels.Add(label);
-
             // 調整文字位置，避免重疊
             Canvas.SetLeft(label, position.X + perpX * 1.5);
             Canvas.SetTop(label, position.Y + perpY * 1.5);
@@ -375,16 +375,10 @@ namespace RTAutoMetric
 
         public void RulerMouseRightButtonDown()
         {
-            var maskElements1 = canvas.Children.OfType<Line>().ToList();
-            foreach (var element in maskElements1)
-            {
-                canvas.Children.Remove(element);
-            }
-            var maskElements2 = canvas.Children.OfType<TextBlock>().ToList();
-            foreach (var element in maskElements2)
-            {
-                canvas.Children.Remove(element);
-            }
+            var maskElements = canvas.Children.OfType<UIElement>()
+            .Where(e => e is Line || e is TextBlock)
+            .ToList();
+            maskElements.ForEach(e => canvas.Children.Remove(e));
         }
         #endregion
 

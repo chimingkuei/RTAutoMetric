@@ -52,10 +52,11 @@
                         <!--<Image Name="Display_Screen" MouseDown="DrawROI_MouseDown" MouseUp="DrawROI_MouseUp" MouseMove="DrawROI_MouseMove" Stretch="UniformToFill"/>-->
                         <!--<Rectangle x:Name="Rectangle" StrokeThickness="2" Stroke="Red" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="74,78,0,0" Height="80" Width="80"/>-->
                     </Grid>
-                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="1054,25,28,321" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="795,239,287,107" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
                     <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="794,15,288,331" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
                     <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="792,127,290,219" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
-                    <ToggleButton Name="Workflow" Style="{StaticResource BaseToggleButton}" Margin="1058,142,24,203" Background="#FFE6F0FF" BorderThickness="0" Checked="Workflow_CheckedUnchecked" Unchecked="Workflow_CheckedUnchecked">
+                    <Button x:Name="Save_Config" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="795,342,287,4" Content="儲存參數" FontSize="18" Click="Main_Btn_Click"/>
+                    <ToggleButton Name="Workflow" Style="{StaticResource BaseToggleButton}" Margin="927,24,155,321" Background="#FFE6F0FF" BorderThickness="0" Checked="Workflow_CheckedUnchecked" Unchecked="Workflow_CheckedUnchecked">
                         <ToggleButton.ToolTip>
                             <TextBlock x:Name="test" FontSize="14"></TextBlock>
                         </ToggleButton.ToolTip>
@@ -64,8 +65,7 @@
                     <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1057,353,59,49"/>
                     <Label x:Name="RulerOnOff_label" Content="Ruler開關︰" Margin="988,401,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <CheckBox x:Name="RulerOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1059,391,57,10"/>
-                    <TextBox x:Name="Parameter1" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="800,329,276,75"/>
-                    <TextBox x:Name="Parameter2" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="801,380,276,25"/>
+                    <TextBox x:Name="Parameter2" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="1015,315,62,90"/>
                 </Grid>
             </TabItem>
             <TabItem Header="參數畫面" Style="{StaticResource BaseTabcontrol}">
@@ -73,6 +73,7 @@
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="115" Margin="98,139,0,0">
                         <xctk:ColorPicker Name="colorPicker" SelectedColorChanged="ColorPicker_SelectedColorChanged" />
                     </StackPanel>
+                    <xctk:IntegerUpDown x:Name="MaskThickness" Increment="1" Minimum="0" TextAlignment="Center" FontSize="20" Width="100" Height="40" Margin="100,194,982,212"/>
                 </Grid>
             </TabItem>
         </TabControl>

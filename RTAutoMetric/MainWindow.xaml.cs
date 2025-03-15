@@ -28,6 +28,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Controls.Primitives;
 using netDxf.Entities;
+using Xceed.Wpf.Toolkit;
 
 
 namespace RTAutoMetric
@@ -35,10 +36,10 @@ namespace RTAutoMetric
     #region Config Class
     public class SerialNumber
     {
-        [JsonProperty("Parameter1_val")]
-        public string Parameter1_val { get; set; }
-        [JsonProperty("Parameter2_val")]
-        public string Parameter2_val { get; set; }
+        [JsonProperty("MaskThickness_val")]
+        public string MaskThickness_val { get; set; }
+        [JsonProperty("colorPicker_val")]
+        public System.Windows.Media.Color colorPicker_val { get; set; }
     }
 
     public class Model
@@ -65,7 +66,7 @@ namespace RTAutoMetric
         #region Function
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (MessageBox.Show("請問是否要關閉？", "確認", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (System.Windows.MessageBox.Show("請問是否要關閉？", "確認", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 e.Cancel = false;
             }
@@ -80,8 +81,8 @@ namespace RTAutoMetric
         {
             SerialNumber serialnumber_ = new SerialNumber
             {
-                Parameter1_val = Parameter1.Text,
-                Parameter2_val = Parameter2.Text
+                MaskThickness_val = MaskThickness.Text,
+                colorPicker_val = (System.Windows.Media.Color)colorPicker.SelectedColor
             };
             return serialnumber_;
         }
@@ -91,8 +92,8 @@ namespace RTAutoMetric
             List<RootObject> Parameter_info = Config.Load(encryption);
             if (Parameter_info != null)
             {
-                Parameter1.Text = Parameter_info[model].Models[serialnumber].SerialNumbers.Parameter1_val;
-                Parameter2.Text = Parameter_info[model].Models[serialnumber].SerialNumbers.Parameter2_val;
+                MaskThickness.Text = Parameter_info[model].Models[serialnumber].SerialNumbers.MaskThickness_val;
+                colorPicker.SelectedColor = Parameter_info[model].Models[serialnumber].SerialNumbers.colorPicker_val;
             }
             else
             {
@@ -138,6 +139,19 @@ namespace RTAutoMetric
         }
         #endregion
 
+        private void ParaInit()
+        {
+            if (!File.Exists(@"Config.json"))
+            {
+                mask = new MouseActions(System.Windows.Media.Color.FromArgb(120, 0, 0, 0), 10);
+            }
+            else
+            {
+                var color = System.Windows.Media.Color.FromArgb(120, colorPicker.SelectedColor.Value.R, colorPicker.SelectedColor.Value.G, colorPicker.SelectedColor.Value.B);
+                mask = new MouseActions(color, Convert.ToInt32(MaskThickness.Text));
+            }
+        }
+
         #region ROI Selection Operation
         //private void ShowRect(System.Windows.Point point)
         //{
@@ -182,33 +196,33 @@ namespace RTAutoMetric
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
-                ma.MaskDown(e);
+                mask.MaskDown(e);
             if ((bool)RulerOnOff.IsChecked)
-                ma.RulerDown(e);
+                ruler.RulerDown(e);
         }
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
-                ma.MaskMove(e);
+                mask.MaskMove(e);
             if ((bool)RulerOnOff.IsChecked)
-                ma.RulerMove(e);
+                ruler.RulerMove(e);
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
-                ma.MaskUp();
+                mask.MaskUp();
             if ((bool)RulerOnOff.IsChecked)
-                ma.RulerUp();
+                ruler.RulerUp();
         }
 
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
-                ma.MaskMouseRightButtonDown();
+                mask.MaskMouseRightButtonDown();
             if ((bool)RulerOnOff.IsChecked)
-                ma.RulerMouseRightButtonDown();
+                ruler.RulerMouseRightButtonDown();
         }
         #endregion
         #endregion
@@ -217,7 +231,9 @@ namespace RTAutoMetric
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadConfig(0, 0);
-            ma.canvas = myCanvas;
+            ParaInit();
+            mask.canvas = myCanvas;
+            ruler.canvas = myCanvas;
         }
         BaseConfig<RootObject> Config = new BaseConfig<RootObject>();
         Core Do = new Core();
@@ -225,7 +241,9 @@ namespace RTAutoMetric
         private System.Windows.Point _startPoint;
         private System.Windows.Point _endPoint;
         CancellationTokenSource cts;
-        MouseActions ma = new MouseActions();
+        MouseActions mask;
+        MouseActions ruler = new MouseActions(10, 20, 5);
+        bool SelectedState = false;
         #region Log
         BaseLogRecord Logger = new BaseLogRecord();
         //Logger.WriteLog("儲存參數!", LogLevel.General, richTextBoxGeneral);
@@ -246,13 +264,18 @@ namespace RTAutoMetric
                 case nameof(Save_MaskFile):
                     {
                         if ((bool)MaskOnOff.IsChecked)
-                            ma.SaveMaskToFile(@"MaskFile.json");
+                            mask.SaveMaskToFile(@"MaskFile.json");
                         break;
                     }
                 case nameof(Load_MaskFile):
                     {
                         if ((bool)MaskOnOff.IsChecked)
-                            ma.LoadMaskFromFile(@"MaskFile.json");
+                            mask.LoadMaskFromFile(@"MaskFile.json");
+                        break;
+                    }
+                case nameof(Save_Config):
+                    {
+                        SaveConfig(0, 0);
                         break;
                     }
             }
@@ -307,7 +330,7 @@ namespace RTAutoMetric
             {
                 var selectedColor = e.NewValue.Value;
                 var convertedColor = System.Windows.Media.Color.FromArgb(120, selectedColor.R, selectedColor.G, selectedColor.B);
-                ma.color = convertedColor;
+                SelectedState = !SelectedState ? true : (mask.color = convertedColor) == convertedColor;
             }
         }
         #endregion
