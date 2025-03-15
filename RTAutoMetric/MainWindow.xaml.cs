@@ -181,22 +181,26 @@ namespace RTAutoMetric
         #region Draw Mask
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ma.MaskDown(e);
+            if ((bool)MaskOnOff.IsChecked)
+                ma.MaskDown(e);
         }
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
-            ma.MaskMove(e);
+            if ((bool)MaskOnOff.IsChecked)
+                ma.MaskMove(e);
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            ma.MaskUp();
+            if ((bool)MaskOnOff.IsChecked)
+                ma.MaskUp();
         }
 
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ma.MaskMouseRightButtonDown();
+            if ((bool)MaskOnOff.IsChecked)
+                ma.MaskMouseRightButtonDown();
         }
         #endregion
         #endregion
@@ -229,6 +233,18 @@ namespace RTAutoMetric
                     {
                         BitmapImage regionImage = Do.CaptureRegion<BitmapImage>(0, 0, 1920, 1080);
                         Display_Screen.Source = regionImage;
+                        break;
+                    }
+                case nameof(Save_MaskFile):
+                    {
+                        if ((bool)MaskOnOff.IsChecked)
+                            ma.SaveMaskToFile(@"MaskFile.json");
+                        break;
+                    }
+                case nameof(Load_MaskFile):
+                    {
+                        if ((bool)MaskOnOff.IsChecked)
+                            ma.LoadMaskFromFile(@"MaskFile.json");
                         break;
                     }
             }

@@ -9,9 +9,9 @@
         mc:Ignorable="d"
         Closing="WindowClosing" 
         ResizeMode="CanMinimize"
-        Title="RTAutoMetric" Height="700" Width="1000" Background="#FF3E6FB3" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="RTAutoMetric" Height="700" Width="1200" Background="#FF3E6FB3" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <TabControl x:Name="Log" HorizontalAlignment="Left" Height="172" Margin="5,485,0,0" VerticalAlignment="Top" Width="790" Background="#FFE6F0FF">
+        <TabControl x:Name="Log" HorizontalAlignment="Left" Height="172" Margin="5,485,0,0" VerticalAlignment="Top" Width="976" Background="#FFE6F0FF">
             <TabControl.Resources>
                 <Style TargetType="RichTextBox">
                     <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
@@ -37,29 +37,33 @@
                 <RichTextBox x:Name="richTextBoxDebug" Background="#FF4396BF"/>
             </TabItem>
         </TabControl>
-        <TabControl HorizontalAlignment="Left" Margin="5,3,0,0" VerticalAlignment="Top" Height="478" Width="978" Background="#FFE6F0FF">
+        <TabControl HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top" Height="478" Width="1188" Background="#FFE6F0FF">
             <TabItem Header="主畫面" Style="{StaticResource BaseTabcontrol}">
                 <Grid>
-                    <Grid Margin="14,16,202,8">
+                    <Grid Margin="14,16,413,8">
                         <Border BorderBrush="Black" BorderThickness="1" Opacity="1"/>
                         <Canvas Name="myCanvas"
                             MouseDown="Canvas_MouseDown"
                             MouseMove="Canvas_MouseMove" 
                             MouseUp="Canvas_MouseUp"
                             MouseRightButtonDown="Canvas_MouseRightButtonDown">
-                            <Image Name="Display_Screen" Stretch="UniformToFill" Height="422" Width="756"/>
+                            <Image Name="Display_Screen" Stretch="UniformToFill" Height="422" Width="755"/>
                         </Canvas>
                         <!--<Image Name="Display_Screen" MouseDown="DrawROI_MouseDown" MouseUp="DrawROI_MouseUp" MouseMove="DrawROI_MouseMove" Stretch="UniformToFill"/>-->
                         <!--<Rectangle x:Name="Rectangle" StrokeThickness="2" Stroke="Red" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="74,78,0,0" Height="80" Width="80"/>-->
                     </Grid>
-                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="813,41,59,305" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
-                    <ToggleButton Name="Workflow" Style="{StaticResource BaseToggleButton}" Margin="804,170,54,172" Background="#FFE6F0FF" BorderThickness="0" Checked="Workflow_CheckedUnchecked" Unchecked="Workflow_CheckedUnchecked">
+                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="1054,25,28,321" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="794,15,288,331" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="792,127,290,219" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
+                    <ToggleButton Name="Workflow" Style="{StaticResource BaseToggleButton}" Margin="1058,142,24,203" Background="#FFE6F0FF" BorderThickness="0" Checked="Workflow_CheckedUnchecked" Unchecked="Workflow_CheckedUnchecked">
                         <ToggleButton.ToolTip>
                             <TextBlock x:Name="test" FontSize="14"></TextBlock>
                         </ToggleButton.ToolTip>
                     </ToggleButton>
-                    <TextBox x:Name="Parameter1" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="803,329,39,75"/>
-                    <TextBox x:Name="Parameter2" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="796,382,46,24"/>
+                    <Label x:Name="MaskOnOff_label" Content="Mask開關︰" Margin="988,363,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1057,353,59,49"/>
+                    <TextBox x:Name="Parameter1" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="800,329,276,75"/>
+                    <TextBox x:Name="Parameter2" Style="{StaticResource BaseTextBox}" Tag="請輸入內容..." Margin="801,380,276,25"/>
                 </Grid>
             </TabItem>
             <TabItem Header="參數畫面" Style="{StaticResource BaseTabcontrol}">

@@ -102,16 +102,21 @@ namespace RTAutoMetric
         public System.Windows.Media.Color color = System.Windows.Media.Color.FromArgb(120, 0, 0, 0);
         public double thickness = 10;
 
-        public Polyline PolylineAppearance()
+        private Polyline PolylineAppearance(List<System.Windows.Point> points=null)
         {
-            return new Polyline
+            var polyline = new Polyline
             {
                 Stroke = new SolidColorBrush(color),
                 StrokeThickness = thickness,
                 StrokeLineJoin = PenLineJoin.Round,
                 StrokeStartLineCap = PenLineCap.Round,
-                StrokeEndLineCap = PenLineCap.Round,
+                StrokeEndLineCap = PenLineCap.Round
             };
+            if (points?.Count > 0)
+            {
+                polyline.Points = new PointCollection(points);
+            }
+            return polyline;
         }
 
         public void MaskDown(MouseButtonEventArgs e)
@@ -138,18 +143,17 @@ namespace RTAutoMetric
             if (isDrawing && maskPath != null)
             {
                 maskPaths.Add(maskPath.Points.ToList()); // 儲存遮罩點座標
-                List<System.Windows.Point> pointsList = maskPath.Points.ToList();
-                // 列印點座標
-                Console.WriteLine("Mask Path Points:");
-                foreach (var point in pointsList)
-                {
-                    Console.WriteLine($"({point.X}, {point.Y})");
-                }
+                //List<System.Windows.Point> pointsList = maskPath.Points.ToList();
+                //Console.WriteLine("Mask Path Points:");
+                //foreach (var point in pointsList)
+                //{
+                //    Console.WriteLine($"({point.X}, {point.Y})");
+                //}
             }
             isDrawing = false;
         }
 
-        public void MaskMouseRightButtonDown()
+        private void RemovePolyline()
         {
             var maskElements = canves.Children.OfType<Polyline>().ToList();
             foreach (var element in maskElements)
@@ -158,16 +162,32 @@ namespace RTAutoMetric
             }
         }
 
-        private void SaveMaskToFile(string filePath)
+        public void MaskMouseRightButtonDown()
+        {
+            RemovePolyline();
+        }
+
+        public void SaveMaskToFile(string filePath)
         {
             var serializableData = maskPaths
                 .Select(path => path.Select(p => Tuple.Create(p.X, p.Y)).ToList())
                 .ToList();
             string json = JsonConvert.SerializeObject(serializableData, Formatting.Indented);
             File.WriteAllText(filePath, json);
+            Console.WriteLine("Mask File 已儲存：" + filePath);
         }
 
-        private void LoadMaskFromFile(string filePath)
+        private void RedrawMasks()
+        {
+            RemovePolyline();
+            foreach (var points in maskPaths)
+            {
+                Polyline polyline = PolylineAppearance(points);
+                canves.Children.Add(polyline);
+            }
+        }
+
+        public void LoadMaskFromFile(string filePath)
         {
             if (File.Exists(filePath))
             {
@@ -177,20 +197,11 @@ namespace RTAutoMetric
                     .Select(path => path.Select(t => new System.Windows.Point(t.Item1, t.Item2)).ToList())
                     .ToList();
                 RedrawMasks();
+                Console.WriteLine("Mask File 已導入：" + filePath);
             }
         }
 
-        private void RedrawMasks()
-        {
-            canves.Children.Clear();
-            foreach (var points in maskPaths)
-            {
-                Polyline polyline = PolylineAppearance();
-                canves.Children.Add(polyline);
-            }
-        }
-
-        private void SaveCanvasToImage(string filePath)
+        public void SaveCanvasToImage(string filePath)
         {
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
                 (int)canves.ActualWidth, (int)canves.ActualHeight,
