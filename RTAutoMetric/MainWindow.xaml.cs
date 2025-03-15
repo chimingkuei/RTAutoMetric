@@ -183,25 +183,37 @@ namespace RTAutoMetric
         {
             if ((bool)MaskOnOff.IsChecked)
                 ma.MaskDown(e);
+            if ((bool)RulerOnOff.IsChecked)
+                ma.RulerDown(e);
         }
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
                 ma.MaskMove(e);
+            if ((bool)RulerOnOff.IsChecked)
+                ma.RulerMove(e);
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
                 ma.MaskUp();
+            if ((bool)RulerOnOff.IsChecked)
+                ma.RulerUp();
         }
 
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
                 ma.MaskMouseRightButtonDown();
+            if ((bool)RulerOnOff.IsChecked)
+                ma.RulerMouseRightButtonDown();
         }
+        #endregion
+
+        #region
+
         #endregion
         #endregion
 
@@ -209,7 +221,7 @@ namespace RTAutoMetric
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadConfig(0, 0);
-            ma.canves = myCanvas;
+            ma.canvas = myCanvas;
         }
         BaseConfig<RootObject> Config = new BaseConfig<RootObject>();
         Core Do = new Core();
