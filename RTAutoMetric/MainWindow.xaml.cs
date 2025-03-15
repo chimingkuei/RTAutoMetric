@@ -292,6 +292,16 @@ namespace RTAutoMetric
         }
         #endregion
 
-
+        #region Parameter Screen
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<System.Windows.Media.Color?> e)
+        {
+            if (e.NewValue.HasValue)
+            {
+                var selectedColor = e.NewValue.Value;
+                var convertedColor = System.Windows.Media.Color.FromArgb(120, selectedColor.R, selectedColor.G, selectedColor.B);
+                ma.color = convertedColor;
+            }
+        }
+        #endregion
     }
 }
