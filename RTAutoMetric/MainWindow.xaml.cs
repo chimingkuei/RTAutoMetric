@@ -178,7 +178,7 @@ namespace RTAutoMetric
         //}
         #endregion
 
-        #region Draw Mask
+        #region MouseActions
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
@@ -210,10 +210,6 @@ namespace RTAutoMetric
             if ((bool)RulerOnOff.IsChecked)
                 ma.RulerMouseRightButtonDown();
         }
-        #endregion
-
-        #region
-
         #endregion
         #endregion
 
