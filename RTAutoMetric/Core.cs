@@ -240,7 +240,7 @@ namespace RTAutoMetric
             capLength = _capLength;
             tickSpacing = _tickSpacing;
             tickLength = _tickLength;
-    }
+        }
 
         private void UpdateEndpointCaps(Line cap, System.Windows.Point main, System.Windows.Point other)
         {
@@ -382,6 +382,52 @@ namespace RTAutoMetric
         }
         #endregion
 
+        public System.Windows.Controls.Image dispay = new System.Windows.Controls.Image();
+        #region Draw Rect
+        public bool _started;
+        public System.Windows.Point _startPoint;
+        public System.Windows.Point _endPoint;
+        public MouseActions()
+        {
+        }
+
+        private void ShowRect(System.Windows.Shapes.Rectangle rectangle, System.Windows.Point point)
+        {
+            var rect = new System.Windows.Rect(_startPoint, point);
+            rectangle.Margin = new Thickness(rect.Left, rect.Top, 0, 0);
+            rectangle.Width = rect.Width;
+            rectangle.Height = rect.Height;
+        }
+
+        public void RectDown(MouseButtonEventArgs e)
+        {
+            _started = true;
+            _startPoint = e.GetPosition(dispay);
+            //Console.WriteLine($"X座標:{e.GetPosition(Display_Screen).X}");
+            //Console.WriteLine($"Y座標:{e.GetPosition(Display_Screen).Y}");
+        }
+
+        public void RectMove(System.Windows.Shapes.Rectangle rectangle, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (_started)
+                {
+                    _endPoint = e.GetPosition(dispay);
+                    ShowRect(rectangle, _endPoint);
+                }
+            }
+        }
+        public void RectUp()
+        {
+            _started = false;
+        }
+
+        private System.Windows.Point ConvertCoord(System.Windows.Point _startPoint)
+        {
+            return new System.Windows.Point(_startPoint.X * 1920 / dispay.ActualWidth, _startPoint.Y * 1080 / dispay.ActualHeight);
+        }
+        #endregion
     }
 
 }

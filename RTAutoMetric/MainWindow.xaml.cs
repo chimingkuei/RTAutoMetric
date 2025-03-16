@@ -141,6 +141,7 @@ namespace RTAutoMetric
 
         private void ParaInit()
         {
+            Rectangle.Visibility = Visibility.Collapsed;
             if (!File.Exists(@"Config.json"))
             {
                 mask = new MouseActions(System.Windows.Media.Color.FromArgb(120, 0, 0, 0), 10);
@@ -150,49 +151,36 @@ namespace RTAutoMetric
                 var color = System.Windows.Media.Color.FromArgb(120, colorPicker.SelectedColor.Value.R, colorPicker.SelectedColor.Value.G, colorPicker.SelectedColor.Value.B);
                 mask = new MouseActions(color, Convert.ToInt32(MaskThickness.Text));
             }
+            mask.canvas = myCanvas;
+            ruler.canvas = myCanvas;
+            rect.dispay = Display_Screen;
         }
 
-        #region ROI Selection Operation
-        //private void ShowRect(System.Windows.Point point)
-        //{
-        //    var rect = new System.Windows.Rect(_startPoint, point);
-        //    Rectangle.Margin = new Thickness(rect.Left, rect.Top, 0, 0);
-        //    Rectangle.Width = rect.Width;
-        //    Rectangle.Height = rect.Height;
-        //}
-
-        //private void DrawROI_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    _started = true;
-        //    _startPoint = e.GetPosition(Display_Screen);
-        //    //Console.WriteLine($"X座標:{e.GetPosition(Display_Screen).X}");
-        //    //Console.WriteLine($"Y座標:{e.GetPosition(Display_Screen).Y}");
-        //}
-
-        //private void DrawROI_MouseUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    _started = false;
-        //}
-
-        //private void DrawROI_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if (e.LeftButton == MouseButtonState.Pressed)
-        //    {
-        //        if (_started)
-        //        {
-        //            _endPoint = e.GetPosition(Display_Screen);
-        //            ShowRect(_endPoint);
-        //        }
-        //    }
-        //}
-
-        //private System.Windows.Point ConvertCoord(System.Windows.Point _startPoint)
-        //{
-        //    return new System.Windows.Point(_startPoint.X * 1920 / Display_Screen.ActualWidth, _startPoint.Y * 1080 / Display_Screen.ActualHeight);
-        //}
-        #endregion
-
         #region MouseActions
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)RectOnOff.IsChecked)
+            {
+                rect.RectDown(e);
+            }
+        }
+
+        private void Image_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((bool)RectOnOff.IsChecked)
+            {
+                rect.RectMove(Rectangle, e);
+            }
+        }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)RectOnOff.IsChecked)
+            {
+                rect.RectUp();
+            }
+        }
+
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if ((bool)MaskOnOff.IsChecked)
@@ -232,17 +220,16 @@ namespace RTAutoMetric
         {
             LoadConfig(0, 0);
             ParaInit();
-            mask.canvas = myCanvas;
-            ruler.canvas = myCanvas;
         }
         BaseConfig<RootObject> Config = new BaseConfig<RootObject>();
         Core Do = new Core();
-        private bool _started;
-        private System.Windows.Point _startPoint;
-        private System.Windows.Point _endPoint;
+        public bool _started;
+        public System.Windows.Point _startPoint;
+        public System.Windows.Point _endPoint;
         CancellationTokenSource cts;
         MouseActions mask;
         MouseActions ruler = new MouseActions(10, 20, 5);
+        MouseActions rect = new MouseActions();
         bool SelectedState = false;
         #region Log
         BaseLogRecord Logger = new BaseLogRecord();
@@ -320,6 +307,12 @@ namespace RTAutoMetric
             {
                 cts.Cancel();
             }
+        }
+
+        private void Rect_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            Rectangle.Visibility = checkBox.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion
 
