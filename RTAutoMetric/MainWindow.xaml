@@ -54,23 +54,22 @@
                             </xctk:MagnifierManager.Magnifier>
                         </Canvas>
                     </Grid>
-                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="795,239,287,107" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="794,15,288,331" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="792,127,290,219" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Save_Config" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="795,342,287,4" Content="儲存參數" FontSize="18" Click="Main_Btn_Click"/>
-                    <ToggleButton Name="Workflow" Style="{StaticResource BaseToggleButton}" Margin="927,24,155,321" Background="#FFE6F0FF" BorderThickness="0" Checked="Workflow_CheckedUnchecked" Unchecked="Workflow_CheckedUnchecked">
-                        <ToggleButton.ToolTip>
-                            <TextBlock x:Name="test" FontSize="14"></TextBlock>
-                        </ToggleButton.ToolTip>
-                    </ToggleButton>
-                    <Label x:Name="MaskOnOff_label" Content="Mask開關︰" Margin="981,312,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1060,300,56,101"/>
-                    <Label x:Name="RulerOnOff_label" Content="Ruler開關︰" Margin="980,350,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="RulerOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1059,339,57,62"/>
-                    <Label x:Name="RectOnOff_label" Content="Rect開關︰" Margin="987,387,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="RectOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Click="Main_CheckBox_Click" Margin="1059,378,57,24"/>
-                    <Label x:Name="MagOnOff_Label" Content="放大鏡:" HorizontalAlignment="Left" Margin="985,277,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <CheckBox x:Name="MagOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1060,268,56,133" Click="Main_CheckBox_Click"/>
+                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="904,15,178,331" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="788,129,294,217" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Save_Mask" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="786,16,296,330" Content="儲存Mask" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="787,236,295,110" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Save_Config" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="907,129,175,217" Content="儲存參數" FontSize="18" Click="Main_Btn_Click"/>
+                    <Button x:Name="Save_Canvas" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="907,235,175,111" Content="儲存畫面" FontSize="18" Click="Main_Btn_Click"/>
+                    <WrapPanel Margin="1029,288,8,13" Orientation="Horizontal">
+                        <Label x:Name="MaskOnOff_label" Content="Mask開關︰" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="0,9,0,0"/>
+                        <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0"/>
+                        <Label x:Name="RulerOnOff_label" Content="Ruler開關︰" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,9,0,0"/>
+                        <CheckBox x:Name="RulerOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0"/>
+                        <Label x:Name="RectOnOff_label" Content="Rect開關︰" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,9,0,0"/>
+                        <CheckBox x:Name="RectOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0" Click="Main_CheckBox_Click"/>
+                        <Label x:Name="MagOnOff_Label" Content="放大鏡︰" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="17,9,0,0"/>
+                        <CheckBox x:Name="MagOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0" Click="Main_CheckBox_Click"/>
+                    </WrapPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="參數畫面" Style="{StaticResource BaseTabcontrol}">

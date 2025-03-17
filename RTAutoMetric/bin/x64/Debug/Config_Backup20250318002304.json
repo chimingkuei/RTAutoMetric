@@ -5,7 +5,8 @@
         "SerialNumbers": {
           "Parameter1_val": "",
           "Parameter2_val": "",
-          "MaskThickness_val": "10"
+          "MaskThickness_val": "10",
+          "colorPicker_val": "#FF7FFFD4"
         }
       },
       {

@@ -144,6 +144,7 @@ namespace RTAutoMetric
         private void ParaInit()
         {
             Rectangle.Visibility = Visibility.Collapsed;
+            Mag.IsEnabled = false;
             if (!File.Exists(@"Config.json"))
             {
                 mask = new MouseActions(System.Windows.Media.Color.FromArgb(120, 0, 0, 0), 10);
@@ -250,6 +251,12 @@ namespace RTAutoMetric
                         Display_Screen.Source = regionImage;
                         break;
                     }
+                case nameof(Save_Mask):
+                    {
+                        if ((bool)MaskOnOff.IsChecked)
+                            mask.SaveMask(@"Mask.png");
+                        break;
+                    }
                 case nameof(Save_MaskFile):
                     {
                         if ((bool)MaskOnOff.IsChecked)
@@ -262,52 +269,16 @@ namespace RTAutoMetric
                             mask.LoadMaskFromFile(@"MaskFile.json");
                         break;
                     }
+                case nameof(Save_Canvas):
+                    {
+                        mask.SaveCanvasToImage(@"Canvas.png");
+                        break;
+                    }
                 case nameof(Save_Config):
                     {
                         SaveConfig(0, 0);
                         break;
                     }
-            }
-        }
-
-        private void Workflow_CheckedUnchecked(object sender, RoutedEventArgs e)
-        {
-            var toggleButton = sender as ToggleButton;
-            if (toggleButton.IsChecked == true)
-            {
-                cts = new CancellationTokenSource();
-                Task.Run(() =>
-                {
-                    while (true)
-                    {
-                        if (cts.Token.IsCancellationRequested)
-                        {
-                            Console.WriteLine("thread stop");
-                            return;
-                        }
-                        this.Dispatcher.Invoke(() =>
-                        {
-                            string result;
-                            Do.OCR("TestImage.jpg", "chi_tra", out result);
-                            Match match = Regex.Match(result, @"=\s*(-?\d+(\.\d+)?)");
-                            if (match.Success)
-                            {
-                                string number = match.Groups[1].Value;
-                                Console.WriteLine($"提取的數字: {number}");
-                            }
-                            else
-                            {
-                                Console.WriteLine("未找到數字");
-                            }
-                            GC.Collect();
-                        });
-                        Thread.Sleep(100);
-                    }
-                }, cts.Token);
-            }
-            else
-            {
-                cts.Cancel();
             }
         }
 

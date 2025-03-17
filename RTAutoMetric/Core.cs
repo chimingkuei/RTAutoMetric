@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using System.Windows;
+using System.Windows.Media.Media3D;
 
 
 namespace RTAutoMetric
@@ -208,19 +209,50 @@ namespace RTAutoMetric
             }
         }
 
-        public void SaveCanvasToImage(string filePath)
+        public void SaveMask(string filePath)
         {
-            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
-                (int)canvas.ActualWidth, (int)canvas.ActualHeight,
-                96d, 96d, PixelFormats.Pbgra32);
-            renderBitmap.Render(canvas);
+            int width = (int)canvas.ActualWidth;
+            int height = (int)canvas.ActualHeight;
+            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Pbgra32);
+            // 建立一個新的視覺物件來繪製 Mask
+            DrawingVisual dv = new DrawingVisual();
+            using (DrawingContext dc = dv.RenderOpen())
+            {
+                // 填充白色背景
+                dc.DrawRectangle(System.Windows.Media.Brushes.White, null, new System.Windows.Rect(0, 0, width, height));
+                // 繪製 Mask
+                foreach (var points in maskPaths)
+                {
+                    if (points.Count > 1)
+                    {
+                        // 創建 PathGeometry 來手動繪製 Polyline
+                        StreamGeometry geometry = new StreamGeometry();
+                        using (StreamGeometryContext ctx = geometry.Open())
+                        {
+                            ctx.BeginFigure(points[0], false, false); // 起點
+                            ctx.PolyLineTo(points.Skip(1).ToList(), true, false); // 連接線
+                        }
+                        geometry.Freeze(); // 提高效能
+                        // 使用指定的畫筆繪製
+                        System.Windows.Media.Pen maskPen = new System.Windows.Media.Pen(new SolidColorBrush(color), thickness)
+                        {
+                            StartLineCap = PenLineCap.Round,
+                            EndLineCap = PenLineCap.Round,
+                            LineJoin = PenLineJoin.Round
+                        };
+                        dc.DrawGeometry(null, maskPen, geometry);
+                    }
+                }
+            }
+            renderBitmap.Render(dv);
+            // 儲存影像
             using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
             {
                 PngBitmapEncoder encoder = new PngBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
                 encoder.Save(fileStream);
             }
-            Console.WriteLine("影像已儲存：" + filePath);
+            Console.WriteLine("Mask 影像已儲存：" + filePath);
         }
         #endregion
 
@@ -428,6 +460,21 @@ namespace RTAutoMetric
             return new System.Windows.Point(_startPoint.X * 1920 / dispay.ActualWidth, _startPoint.Y * 1080 / dispay.ActualHeight);
         }
         #endregion
+
+        public void SaveCanvasToImage(string filePath)
+        {
+            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
+                (int)canvas.ActualWidth, (int)canvas.ActualHeight,
+                96d, 96d, PixelFormats.Pbgra32);
+            renderBitmap.Render(canvas);
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                PngBitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+                encoder.Save(fileStream);
+            }
+            Console.WriteLine("影像已儲存：" + filePath);
+        }
     }
 
 }
