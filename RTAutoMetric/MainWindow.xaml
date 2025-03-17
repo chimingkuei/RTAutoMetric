@@ -47,11 +47,12 @@
                             MouseMove="Canvas_MouseMove" 
                             MouseUp="Canvas_MouseUp"
                             MouseRightButtonDown="Canvas_MouseRightButtonDown">
-                            <Image Name="Display_Screen" MouseDown="Image_MouseDown" MouseUp="Image_MouseUp" MouseMove="Image_MouseMove" Stretch="UniformToFill" Height="422" Width="755"/>
-                            <Rectangle x:Name="Rectangle" StrokeThickness="2" Stroke="Red" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="74,78,0,0" Height="80" Width="80"/>
+                            <Image Name="Display_Screen" MouseDown="Image_MouseDown" MouseUp="Image_MouseUp" MouseMove="Image_MouseMove" Stretch="Fill" Height="422" Width="755"/>
+                            <Rectangle x:Name="Rectangle" StrokeThickness="2" Stroke="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80"/>
+                            <xctk:MagnifierManager.Magnifier>
+                                <xctk:Magnifier x:Name="Mag" BorderBrush="Green" BorderThickness="1" Radius="100" ZoomFactor=".5" />
+                            </xctk:MagnifierManager.Magnifier>
                         </Canvas>
-                        <!--<Image Name="Display_Screen" MouseDown="DrawROI_MouseDown" MouseUp="DrawROI_MouseUp" MouseMove="DrawROI_MouseMove" Stretch="UniformToFill"/>-->
-                        <!--<Rectangle x:Name="Rectangle" StrokeThickness="2" Stroke="Red" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="74,78,0,0" Height="80" Width="80"/>-->
                     </Grid>
                     <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="795,239,287,107" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
                     <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="794,15,288,331" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
@@ -65,9 +66,11 @@
                     <Label x:Name="MaskOnOff_label" Content="Mask開關︰" Margin="981,312,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1060,300,56,101"/>
                     <Label x:Name="RulerOnOff_label" Content="Ruler開關︰" Margin="980,350,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="RulerOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1059,339,57,62" RenderTransformOrigin="0.491,0.06"/>
+                    <CheckBox x:Name="RulerOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1059,339,57,62"/>
                     <Label x:Name="RectOnOff_label" Content="Rect開關︰" Margin="987,387,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="RectOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Click="Rect_Click" Margin="1059,378,57,24"/>
+                    <CheckBox x:Name="RectOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Click="Main_CheckBox_Click" Margin="1059,378,57,24"/>
+                    <Label x:Name="MagOnOff_Label" Content="放大鏡:" HorizontalAlignment="Left" Margin="985,277,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <CheckBox x:Name="MagOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" IsChecked="False" Content="Off" Tag="On" Margin="1060,268,56,133" Click="Main_CheckBox_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="參數畫面" Style="{StaticResource BaseTabcontrol}">
@@ -76,6 +79,8 @@
                         <xctk:ColorPicker Name="colorPicker" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
                     </StackPanel>
                     <xctk:IntegerUpDown x:Name="MaskThickness" Increment="1" Minimum="0" TextAlignment="Center" FontSize="20" Width="100" Height="40" Margin="100,194,982,212"/>
+                    <Button x:Name="Open_ImagePath" Style="{StaticResource FileButton}" Margin="403,130,725,265" FontSize="18" Height="51" Width="54" Click="Parameter_Btn_Click"/>
+                    <TextBox x:Name="ImagePath" Style="{StaticResource BaseTextBox}" Tag="請輸入影像路徑!" Margin="463,138,195,273"/>
                 </Grid>
             </TabItem>
         </TabControl>

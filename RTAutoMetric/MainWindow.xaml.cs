@@ -29,6 +29,8 @@ using System.Text.RegularExpressions;
 using System.Windows.Controls.Primitives;
 using netDxf.Entities;
 using Xceed.Wpf.Toolkit;
+using Microsoft.Win32;
+using System.Windows.Interop;
 
 
 namespace RTAutoMetric
@@ -309,14 +311,44 @@ namespace RTAutoMetric
             }
         }
 
-        private void Rect_Click(object sender, RoutedEventArgs e)
+        private void Main_CheckBox_Click(object sender, RoutedEventArgs e)
         {
-            CheckBox checkBox = sender as CheckBox;
-            Rectangle.Visibility = checkBox.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+            switch ((sender as CheckBox).Name)
+            {
+                case nameof(RectOnOff):
+                    {
+                        Rectangle.Visibility = RectOnOff.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+                        break;
+                    }
+                case nameof(MagOnOff):
+                    {
+                        Mag.IsEnabled = MagOnOff.IsChecked == true;
+                        break;
+                    }
+            }
         }
         #endregion
 
         #region Parameter Screen
+        private void Parameter_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case nameof(Open_ImagePath):
+                    {
+                        OpenFileDialog openFileDialog = new OpenFileDialog();
+                        openFileDialog.Filter = "Image files|*.bmp;*.jpg;*.png;*|All files|*.*";
+                        if (openFileDialog.ShowDialog() == true)
+                        {
+                            BitmapImage bitmapImage = new BitmapImage(new Uri(openFileDialog.FileName));
+                            Display_Screen.Source = bitmapImage;
+                            ImagePath.Text = openFileDialog.FileName;
+                        }
+                        break;
+                    }
+            }
+        }
+
         private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<System.Windows.Media.Color?> e)
         {
             if (e.NewValue.HasValue)

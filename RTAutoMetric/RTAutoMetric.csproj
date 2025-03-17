@@ -224,6 +224,9 @@
     <Resource Include="Icon\Start.png" />
     <Resource Include="Icon\Stop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\Open File Path.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -4,17 +4,17 @@
 exe
 C#
 .cs
-D:\Chimingkuei\repos\Project\RTAutoMetric\RTAutoMetric\obj\x64\Debug\
+D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\obj\x64\Debug\
 RTAutoMetric
 none
 false
 DEBUG;TRACE
-D:\Chimingkuei\repos\Project\RTAutoMetric\RTAutoMetric\App.xaml
+D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\App.xaml
 10-713151501
-4773007597
+4-1278097835
 9478750468
-35817067700
+35-161248056
 MainWindow.xaml;UI\ButtonStyles.xaml;UI\CheckBoxStyles.xaml;UI\ComboBoxStyles.xaml;UI\GroupBoxStyles.xaml;UI\RadioButtonStyles.xaml;UI\SliderStyles.xaml;UI\TabControlStyles.xaml;UI\TextBoxStyles.xaml;UI\ToggleButtonStyles.xaml;
 
-True
+False
 
