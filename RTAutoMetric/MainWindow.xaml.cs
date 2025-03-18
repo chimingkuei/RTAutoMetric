@@ -156,9 +156,11 @@ namespace RTAutoMetric
             }
             mask.canvas = myCanvas;
             ruler.canvas = myCanvas;
+            arrow.canvas = myCanvas;
             mask.dispay = Display_Screen;
             ruler.dispay = Display_Screen;
             rect.dispay = Display_Screen;
+            arrow.dispay = Display_Screen;
         }
 
         #region MouseActions
@@ -192,6 +194,8 @@ namespace RTAutoMetric
                 mask.MaskDown(e);
             if ((bool)RulerOnOff.IsChecked)
                 ruler.RulerDown(e);
+            if ((bool)ArrowOnOff.IsChecked)
+                arrow.ArrowDown(e);
         }
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
@@ -200,6 +204,8 @@ namespace RTAutoMetric
                 mask.MaskMove(e);
             if ((bool)RulerOnOff.IsChecked)
                 ruler.RulerMove(e);
+            if ((bool)ArrowOnOff.IsChecked)
+                arrow.ArrowMove(e);
         }
 
         private void Canvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -208,6 +214,8 @@ namespace RTAutoMetric
                 mask.MaskUp();
             if ((bool)RulerOnOff.IsChecked)
                 ruler.RulerUp();
+            if ((bool)ArrowOnOff.IsChecked)
+                arrow.ArrowUp();
         }
 
         private void Canvas_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -235,6 +243,7 @@ namespace RTAutoMetric
         MouseActions mask;
         MouseActions ruler = new MouseActions(10, 20, 5);
         MouseActions rect = new MouseActions();
+        MouseActions arrow = new MouseActions();
         bool SelectedState = false;
         #region Log
         BaseLogRecord Logger = new BaseLogRecord();

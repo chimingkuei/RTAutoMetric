@@ -489,6 +489,68 @@ namespace RTAutoMetric
             return new System.Windows.Point(_startPoint.X * 1920 / dispay.ActualWidth, _startPoint.Y * 1080 / dispay.ActualHeight);
         }
         #endregion
+
+        #region Draw Arrow
+        private System.Windows.Shapes.Line blade;
+        private Polygon swordHead;
+        private bool ArrowisDrawing = false;
+
+        public void ArrowDown(MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                startPoint = e.GetPosition(canvas);
+                ArrowisDrawing = true;
+                // 劍刃 (Line)
+                blade = new System.Windows.Shapes.Line
+                {
+                    Stroke = System.Windows.Media.Brushes.Red,
+                    StrokeThickness = 2
+                };
+                canvas.Children.Add(blade);
+                // 劍頭 (三角形箭頭)
+                swordHead = new Polygon
+                {
+                    Fill = System.Windows.Media.Brushes.Red,
+                    Stroke = System.Windows.Media.Brushes.Red,
+                    StrokeThickness = 1
+                };
+                canvas.Children.Add(swordHead);
+            }
+        }
+
+        public void ArrowMove(MouseEventArgs e)
+        {
+            if (ArrowisDrawing)
+            {
+                System.Windows.Point endPoint = e.GetPosition(canvas);
+                // 更新劍刃 (劍身)
+                blade.X1 = startPoint.X;
+                blade.Y1 = startPoint.Y;
+                blade.X2 = endPoint.X;
+                blade.Y2 = endPoint.Y;
+                // 計算劍頭方向
+                Vector direction = new Vector(endPoint.X - startPoint.X, endPoint.Y - startPoint.Y);
+                direction.Normalize();
+                Vector normal = new Vector(-direction.Y, direction.X);
+                // 劍頭大小
+                double swordHeadSize = 5;
+                System.Windows.Point tip = endPoint;
+                System.Windows.Point left = endPoint - direction * swordHeadSize + normal * swordHeadSize / 2;
+                System.Windows.Point right = endPoint - direction * swordHeadSize - normal * swordHeadSize / 2;
+                // 更新劍頭 (三角形)
+                swordHead.Points.Clear();
+                swordHead.Points.Add(tip);
+                swordHead.Points.Add(left);
+                swordHead.Points.Add(right);
+            }
+        }
+
+        public void ArrowUp()
+        {
+            ArrowisDrawing = false; // 完成繪製
+        }
+        #endregion
     }
 
 }
