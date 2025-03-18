@@ -156,6 +156,8 @@ namespace RTAutoMetric
             }
             mask.canvas = myCanvas;
             ruler.canvas = myCanvas;
+            mask.dispay = Display_Screen;
+            ruler.dispay = Display_Screen;
             rect.dispay = Display_Screen;
         }
 

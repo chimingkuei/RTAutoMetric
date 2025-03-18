@@ -98,6 +98,30 @@ namespace RTAutoMetric
     class MouseActions
     {
         public Canvas canvas = new Canvas();
+        public System.Windows.Controls.Image dispay = new System.Windows.Controls.Image();
+
+        private Tuple<double, double> Correction()
+        {
+            double correction_x = (dispay.Width - dispay.ActualWidth) / 2;
+            double correction_y = (dispay.Height - dispay.ActualHeight) / 2;
+            return Tuple.Create(correction_x, correction_y);
+        }
+
+        public void SaveCanvasToImage(string filePath)
+        {
+            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
+                (int)canvas.ActualWidth, (int)canvas.ActualHeight,
+                96d, 96d, PixelFormats.Pbgra32);
+            renderBitmap.Render(canvas);
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                PngBitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+                encoder.Save(fileStream);
+            }
+            Console.WriteLine("影像已儲存：" + filePath);
+        }
+
         #region Draw Mask
         public Polyline maskPath { get; set; }
         public bool isDrawing = false;
@@ -209,12 +233,15 @@ namespace RTAutoMetric
             }
         }
 
+        // Correction
         public void SaveMask(string filePath)
         {
-            int width = (int)canvas.ActualWidth;
-            int height = (int)canvas.ActualHeight;
+            int width = (int)dispay.ActualWidth;
+            int height = (int)dispay.ActualHeight;
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(width, height, 96d, 96d, PixelFormats.Pbgra32);
             // 建立一個新的視覺物件來繪製 Mask
+            double xOffset = Correction().Item1;
+            double yOffset = Correction().Item2;
             DrawingVisual dv = new DrawingVisual();
             using (DrawingContext dc = dv.RenderOpen())
             {
@@ -229,8 +256,9 @@ namespace RTAutoMetric
                         StreamGeometry geometry = new StreamGeometry();
                         using (StreamGeometryContext ctx = geometry.Open())
                         {
-                            ctx.BeginFigure(points[0], false, false); // 起點
-                            ctx.PolyLineTo(points.Skip(1).ToList(), true, false); // 連接線
+                            var translatedPoints = points.Select(p => new System.Windows.Point(p.X - xOffset, p.Y - yOffset)).ToList();
+                            ctx.BeginFigure(translatedPoints[0], false, false); // 起點
+                            ctx.PolyLineTo(translatedPoints.Skip(1).ToList(), true, false); // 連接線
                         }
                         geometry.Freeze(); // 提高效能
                         // 使用指定的畫筆繪製
@@ -414,7 +442,6 @@ namespace RTAutoMetric
         }
         #endregion
 
-        public System.Windows.Controls.Image dispay = new System.Windows.Controls.Image();
         #region Draw Rect
         public bool _started;
         public System.Windows.Point _startPoint;
@@ -423,10 +450,11 @@ namespace RTAutoMetric
         {
         }
 
+        // Correction
         private void ShowRect(System.Windows.Shapes.Rectangle rectangle, System.Windows.Point point)
         {
             var rect = new System.Windows.Rect(_startPoint, point);
-            rectangle.Margin = new Thickness(rect.Left, rect.Top, 0, 0);
+            rectangle.Margin = new Thickness(rect.Left + Correction().Item1, rect.Top + Correction().Item2, 0, 0);
             rectangle.Width = rect.Width;
             rectangle.Height = rect.Height;
         }
@@ -435,8 +463,8 @@ namespace RTAutoMetric
         {
             _started = true;
             _startPoint = e.GetPosition(dispay);
-            //Console.WriteLine($"X座標:{e.GetPosition(Display_Screen).X}");
-            //Console.WriteLine($"Y座標:{e.GetPosition(Display_Screen).Y}");
+            //Console.WriteLine($"X座標:{e.GetPosition(dispay).X}");
+            //Console.WriteLine($"Y座標:{e.GetPosition(dispay).Y}");
         }
 
         public void RectMove(System.Windows.Shapes.Rectangle rectangle, MouseEventArgs e)
@@ -450,6 +478,7 @@ namespace RTAutoMetric
                 }
             }
         }
+
         public void RectUp()
         {
             _started = false;
@@ -460,21 +489,6 @@ namespace RTAutoMetric
             return new System.Windows.Point(_startPoint.X * 1920 / dispay.ActualWidth, _startPoint.Y * 1080 / dispay.ActualHeight);
         }
         #endregion
-
-        public void SaveCanvasToImage(string filePath)
-        {
-            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
-                (int)canvas.ActualWidth, (int)canvas.ActualHeight,
-                96d, 96d, PixelFormats.Pbgra32);
-            renderBitmap.Render(canvas);
-            using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                PngBitmapEncoder encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
-                encoder.Save(fileStream);
-            }
-            Console.WriteLine("影像已儲存：" + filePath);
-        }
     }
 
 }

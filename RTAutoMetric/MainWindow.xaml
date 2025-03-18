@@ -47,20 +47,22 @@
                             MouseMove="Canvas_MouseMove" 
                             MouseUp="Canvas_MouseUp"
                             MouseRightButtonDown="Canvas_MouseRightButtonDown">
-                            <Image Name="Display_Screen" MouseDown="Image_MouseDown" MouseUp="Image_MouseUp" MouseMove="Image_MouseMove" Stretch="Fill" Height="422" Width="755"/>
+                            <Image Name="Display_Screen" MouseDown="Image_MouseDown" MouseUp="Image_MouseUp" MouseMove="Image_MouseMove" Height="422" Width="755"/>
                             <Rectangle x:Name="Rectangle" StrokeThickness="2" Stroke="Red" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80"/>
                             <xctk:MagnifierManager.Magnifier>
                                 <xctk:Magnifier x:Name="Mag" BorderBrush="Green" BorderThickness="1" Radius="100" ZoomFactor=".5" />
                             </xctk:MagnifierManager.Magnifier>
                         </Canvas>
                     </Grid>
-                    <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="904,15,178,331" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="788,129,294,217" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Save_Mask" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="786,16,296,330" Content="儲存Mask" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="787,236,295,110" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Save_Config" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="907,129,175,217" Content="儲存參數" FontSize="18" Click="Main_Btn_Click"/>
-                    <Button x:Name="Save_Canvas" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="907,235,175,111" Content="儲存畫面" FontSize="18" Click="Main_Btn_Click"/>
-                    <WrapPanel Margin="1029,288,8,13" Orientation="Horizontal">
+                    <WrapPanel Orientation="Horizontal" Margin="773,20,5,118">
+                        <Button x:Name="Capture_Screen" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="擷取螢幕" FontSize="18" Click="Main_Btn_Click"/>
+                        <Button x:Name="Save_Canvas" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="儲存畫面" FontSize="18" Click="Main_Btn_Click"/>
+                        <Button x:Name="Save_Config" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="儲存參數" FontSize="18" Click="Main_Btn_Click"/>
+                        <Button x:Name="Save_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="    儲存&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
+                        <Button x:Name="Save_Mask" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="儲存Mask" FontSize="18" Click="Main_Btn_Click"/>
+                        <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="836,346,67,22" Orientation="Horizontal">
                         <Label x:Name="MaskOnOff_label" Content="Mask開關︰" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="0,9,0,0"/>
                         <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0"/>
                         <Label x:Name="RulerOnOff_label" Content="Ruler開關︰" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,9,0,0"/>
@@ -74,12 +76,16 @@
             </TabItem>
             <TabItem Header="參數畫面" Style="{StaticResource BaseTabcontrol}">
                 <Grid>
-                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="115" Margin="98,139,0,0">
-                        <xctk:ColorPicker Name="colorPicker" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
-                    </StackPanel>
-                    <xctk:IntegerUpDown x:Name="MaskThickness" Increment="1" Minimum="0" TextAlignment="Center" FontSize="20" Width="100" Height="40" Margin="100,194,982,212"/>
-                    <Button x:Name="Open_ImagePath" Style="{StaticResource FileButton}" Margin="403,130,725,265" FontSize="18" Height="51" Width="54" Click="Parameter_Btn_Click"/>
-                    <TextBox x:Name="ImagePath" Style="{StaticResource BaseTextBox}" Tag="請輸入影像路徑!" Margin="463,138,195,273"/>
+                    <GroupBox Style="{StaticResource BaseGroupBox}" Margin="67,188,864,69" Header="Mask Parameter" FontSize="22" Background="Green">
+                        <WrapPanel Orientation="Horizontal" Margin="-8,-8,-9,-8">
+                            <StackPanel Height="32" Width="115" Margin="60,20,0,0">
+                            <xctk:ColorPicker Name="colorPicker" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>
+                            </StackPanel>
+                            <xctk:IntegerUpDown x:Name="MaskThickness" Increment="1" Minimum="0" TextAlignment="Center" FontSize="20" Width="100" Height="40" Margin="70,20,0,0"/>
+                        </WrapPanel>
+                    </GroupBox>
+                    <Button x:Name="Open_ImagePath" Style="{StaticResource FileButton}" Margin="93,68,1035,327" FontSize="18" Height="51" Width="54" Click="Parameter_Btn_Click"/>
+                    <TextBox x:Name="ImagePath" Style="{StaticResource BaseTextBox}" Tag="請輸入影像路徑!" Margin="170,77,363,334"/>
                 </Grid>
             </TabItem>
         </TabControl>
