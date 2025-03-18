@@ -17,6 +17,7 @@ using System.Windows.Input;
 using Newtonsoft.Json;
 using System.Windows;
 using System.Windows.Media.Media3D;
+using MathNet.Numerics.LinearAlgebra;
 
 
 namespace RTAutoMetric
@@ -92,6 +93,133 @@ namespace RTAutoMetric
             }
         }
 
+        public double Cal2PtDist(OpenCvSharp.Point p1, OpenCvSharp.Point p2)
+        {
+            double x_pow = Math.Pow(p1.X - p2.X, 2);
+            double y_pow = Math.Pow(p1.Y - p2.Y, 2);
+            return Math.Sqrt(x_pow + y_pow);
+        }
+
+        public void FitCircle(List<System.Drawing.PointF> pointFs, out float CenterX, out float CenterY, out float CenterR)
+        {
+            Matrix<float> YMat;
+            Matrix<float> RMat;
+            Matrix<float> AMat;
+            List<float> YLit = new List<float>();
+            List<float[]> RLit = new List<float[]>();
+            //------构建Y矩阵
+            foreach (var pointF in pointFs)
+                YLit.Add(pointF.X * pointF.X + pointF.Y * pointF.Y);
+            float[,] Yarray = new float[YLit.Count, 1];
+            for (int i = 0; i < YLit.Count; i++)
+                Yarray[i, 0] = YLit[i];
+            YMat = CreateMatrix.DenseOfArray<float>(Yarray);
+            //构建R矩阵
+            foreach (var pointF in pointFs)
+                RLit.Add(new float[] { -pointF.X, -pointF.Y, -1 });
+            float[,] Rarray = new float[RLit.Count, 3];
+            for (int i = 0; i < RLit.Count; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Rarray[i, j] = RLit[i][j];
+                }
+            }
+            RMat = CreateMatrix.DenseOfArray<float>(Rarray);
+            Matrix<float> RTMat = RMat.Transpose();
+            Matrix<float> RRTInvMat = (RTMat.Multiply(RMat)).Inverse();
+            AMat = RRTInvMat.Multiply(RTMat.Multiply(YMat));
+            float[,] Aarray = AMat.ToArray();
+            float A = Aarray[0, 0];
+            float B = Aarray[1, 0];
+            float C = Aarray[2, 0];
+            CenterX = A / -2.0f;
+            CenterY = B / -2.0f;
+            CenterR = (float)(Math.Sqrt((A * A + B * B - 4 * C)) / 2.0f);
+        }
+
+        public List<System.Drawing.PointF> FCOutlier(List<System.Drawing.PointF> pointFs, double tolerance)
+        {
+            List<System.Drawing.PointF> New_pointFs = new List<System.Drawing.PointF>();
+            float CenterX;
+            float CenterY;
+            float CenterR;
+            FitCircle(pointFs, out CenterX, out CenterY, out CenterR);
+            for (int i = 0; i < pointFs.Count; i++)
+            {
+                if (Math.Abs(Cal2PtDist(new OpenCvSharp.Point(pointFs[i].X, pointFs[i].Y), new OpenCvSharp.Point(CenterX, CenterY)) - CenterR) < tolerance)
+                {
+                    New_pointFs.Add(pointFs[i]);
+                }
+            }
+            return New_pointFs;
+        }
+
+        public bool FCByWhiteDot(OpenCvSharp.Mat src, OpenCvSharp.Point center, int Radius, bool direction, double tolerance)
+        {
+            //direction-->true:由內而外找白點;false:由外而內找白點
+            List<System.Drawing.PointF> CircleFitLit = new List<System.Drawing.PointF>();
+            if (direction)
+            {
+                for (int angle = 1; angle <= 360; angle++)
+                {
+                    for (int i = 1; i <= Radius; i++)
+                    {
+                        int x = Convert.ToInt32(center.X + i * Math.Cos((Math.PI / 180) * angle));
+                        int y = Convert.ToInt32(center.Y - i * Math.Sin((Math.PI / 180) * angle));
+                        if (src.At<byte>(y, x) == 255)//color use At<Vec3b>(y, x)
+                        {
+                            CircleFitLit.Add(new System.Drawing.PointF(x, y));
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int angle = 1; angle <= 360; angle++)
+                {
+                    for (int i = Radius; i >= 1; i--)
+                    {
+                        int x = Convert.ToInt32(center.X + i * Math.Cos((Math.PI / 180) * angle));
+                        int y = Convert.ToInt32(center.Y - i * Math.Sin((Math.PI / 180) * angle));
+                        if (src.At<byte>(y, x) == 255)//color use At<Vec3b>(y, x)
+                        {
+                            CircleFitLit.Add(new System.Drawing.PointF(x, y));
+                            break;
+                        }
+                    }
+                }
+            }
+            if (CircleFitLit.Count >= 3)
+            {
+                CircleFitLit = FCOutlier(CircleFitLit, tolerance);
+                if (CircleFitLit.Count >= 3)
+                {
+                    foreach (var point in CircleFitLit)
+                    {
+                        OpenCvSharp.Cv2.Circle(src, Convert.ToInt32(point.X), Convert.ToInt32(point.Y), 1, OpenCvSharp.Scalar.Blue, -1);
+                    }
+                    float CenterX;
+                    float CenterY;
+                    float CenterR;
+                    FitCircle(CircleFitLit, out CenterX, out CenterY, out CenterR);
+                    OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, (int)CenterY), 5, OpenCvSharp.Scalar.Green, -1);
+                    OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, (int)CenterY), (int)CenterR, OpenCvSharp.Scalar.Red, 1);
+                    OpenCvSharp.Cv2.ImWrite(@"Result.bmp", src);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 

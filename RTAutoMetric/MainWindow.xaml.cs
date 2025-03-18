@@ -172,12 +172,34 @@ namespace RTAutoMetric
             }
         }
 
+        private void GetRGB(MouseEventArgs e)
+        {
+            System.Windows.Point position = e.GetPosition(Display_Screen);
+            if (Display_Screen.Source != null)
+            {
+                BitmapSource bitmapSource = (BitmapSource)Display_Screen.Source;
+                int x = (int)(position.X * bitmapSource.PixelWidth / Display_Screen.ActualWidth);
+                int y = (int)(position.Y * bitmapSource.PixelHeight / Display_Screen.ActualHeight);
+                if (x >= 0 && x < bitmapSource.PixelWidth && y >= 0 && y < bitmapSource.PixelHeight)
+                {
+                    CroppedBitmap crop = new CroppedBitmap(bitmapSource, new Int32Rect(x, y, 1, 1));
+                    byte[] pixels = new byte[4];
+                    crop.CopyPixels(pixels, 4, 0);
+                    RGB.Text = $"RGB:";
+                    R.Text = $"{pixels[2]},";
+                    G.Text = $"{pixels[1]},";
+                    B.Text = $"{pixels[0]}";
+                }
+            }
+        }
+
         private void Image_MouseMove(object sender, MouseEventArgs e)
         {
             if ((bool)RectOnOff.IsChecked)
             {
                 rect.RectMove(Rectangle, e);
             }
+            GetRGB(e);
         }
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)

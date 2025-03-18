@@ -207,3 +207,5 @@ D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\obj\x64\Debug\RTAutoMetric.csproj
 D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\obj\x64\Debug\RTAutoMe.3129A356.Up2Date
 D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\obj\x64\Debug\RTAutoMetric.exe
 D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\obj\x64\Debug\RTAutoMetric.pdb
+D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\bin\x64\Debug\MathNet.Numerics.dll
+D:\Chimingkuei\repos\RTAutoMetric\RTAutoMetric\bin\x64\Debug\MathNet.Numerics.xml

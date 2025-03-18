@@ -62,6 +62,16 @@
                         <Button x:Name="Save_Mask" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="儲存Mask" FontSize="18" Click="Main_Btn_Click"/>
                         <Button x:Name="Load_MaskFile" Style="{StaticResource CircleButton}" Width="100" Height="100" Margin="0,0,0,0" Content="    導入&#x0a;MaskFile" FontSize="18" Click="Main_Btn_Click"/>
                     </WrapPanel>
+                    <RichTextBox Margin="777,422,257,5" Background="#FFE6F0FF" FontSize="14" BorderThickness="0">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run x:Name="RGB" Foreground="Black"/>
+                                <Run x:Name="R" Foreground="Red"/>
+                                <Run x:Name="G" Foreground="Green"/>
+                                <Run x:Name="B" Foreground="Blue"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
                     <WrapPanel Margin="771,344,3,21" Orientation="Horizontal">
                         <Label x:Name="MaskOnOff_label" Content="Mask開關︰" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="0,9,0,0"/>
                         <CheckBox x:Name="MaskOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0"/>
