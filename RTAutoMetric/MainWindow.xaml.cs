@@ -309,7 +309,11 @@ namespace RTAutoMetric
                     }
                 case nameof(Save_Config):
                     {
-                        SaveConfig(0, 0);
+                        //SaveConfig(0, 0);
+                        string imagePath = @"E:\DIP Temp\Image Temp\202503171452484219_WaterHole1.bmp";
+                        Mat image = Cv2.ImRead(imagePath, ImreadModes.Color);
+                        OpenCvSharp.Point center = new OpenCvSharp.Point(600, 600);
+                        Do.FCByWhiteDot(image, center, 160, false, 0.1);
                         break;
                     }
             }

@@ -93,28 +93,26 @@ namespace RTAutoMetric
             }
         }
 
-        public double Cal2PtDist(OpenCvSharp.Point p1, OpenCvSharp.Point p2)
+        private double Cal2PtDist(PointF p1, PointF p2)
         {
-            double x_pow = Math.Pow(p1.X - p2.X, 2);
-            double y_pow = Math.Pow(p1.Y - p2.Y, 2);
-            return Math.Sqrt(x_pow + y_pow);
+            return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
         }
 
-        public void FitCircle(List<System.Drawing.PointF> pointFs, out float CenterX, out float CenterY, out float CenterR)
+        private void FitCircle(List<System.Drawing.PointF> pointFs, out float CenterX, out float CenterY, out float CenterR)
         {
             Matrix<float> YMat;
             Matrix<float> RMat;
             Matrix<float> AMat;
             List<float> YLit = new List<float>();
             List<float[]> RLit = new List<float[]>();
-            //------构建Y矩阵
+            // 構建Y矩陣
             foreach (var pointF in pointFs)
                 YLit.Add(pointF.X * pointF.X + pointF.Y * pointF.Y);
             float[,] Yarray = new float[YLit.Count, 1];
             for (int i = 0; i < YLit.Count; i++)
                 Yarray[i, 0] = YLit[i];
             YMat = CreateMatrix.DenseOfArray<float>(Yarray);
-            //构建R矩阵
+            // 構建R矩陣
             foreach (var pointF in pointFs)
                 RLit.Add(new float[] { -pointF.X, -pointF.Y, -1 });
             float[,] Rarray = new float[RLit.Count, 3];
@@ -138,82 +136,76 @@ namespace RTAutoMetric
             CenterR = (float)(Math.Sqrt((A * A + B * B - 4 * C)) / 2.0f);
         }
 
-        public List<System.Drawing.PointF> FCOutlier(List<System.Drawing.PointF> pointFs, double tolerance)
+        /// <summary>
+        /// k值調整：較小k值（例如k = 1.0），過濾更多點；較大k值（例如k = 3.0）會保留更多點，只過濾掉極端離群點。
+        /// 過濾機制：若某個點與其它點的平均距離大於mean + k * std，則該點被視為離群點並被剔除。
+        /// </summary>
+        private List<PointF> FCOutlier(List<PointF> points, double k)
         {
-            List<System.Drawing.PointF> New_pointFs = new List<System.Drawing.PointF>();
-            float CenterX;
-            float CenterY;
-            float CenterR;
-            FitCircle(pointFs, out CenterX, out CenterY, out CenterR);
-            for (int i = 0; i < pointFs.Count; i++)
+            // 計算每個點與其他點的距離
+            List<double> distances = new List<double>();
+            for (int i = 0; i < points.Count; i++)
             {
-                if (Math.Abs(Cal2PtDist(new OpenCvSharp.Point(pointFs[i].X, pointFs[i].Y), new OpenCvSharp.Point(CenterX, CenterY)) - CenterR) < tolerance)
+                for (int j = i + 1; j < points.Count; j++)
                 {
-                    New_pointFs.Add(pointFs[i]);
+                    double distance = Cal2PtDist(points[i], points[j]);
+                    distances.Add(distance);
                 }
             }
-            return New_pointFs;
+            // 計算平均距離和標準差
+            double meanDistance = distances.Average();
+            double stdDevDistance = Math.Sqrt(distances.Average(d => Math.Pow(d - meanDistance, 2)));
+            // 計算閾值
+            double threshold = meanDistance + k * stdDevDistance;
+            // 過濾離群點，根據與其他點的平均距離來剔除
+            var filteredPoints = points.Where(p =>
+            {
+                // 計算當前點與其他點的平均距離
+                double avgDistance = points.Where(other => !other.Equals(p))
+                                            .Average(other => Cal2PtDist(p, other));
+                return avgDistance <= threshold;  // 只保留在閾值內的點
+            }).ToList();
+            return filteredPoints;
         }
 
-        public bool FCByWhiteDot(OpenCvSharp.Mat src, OpenCvSharp.Point center, int Radius, bool direction, double tolerance)
+        /// <summary>
+        /// direction-->true:由內而外找白點;false:由外而內找白點
+        /// </summary>
+        public bool FCByWhiteDot(OpenCvSharp.Mat src, OpenCvSharp.Point center, int Radius, bool direction, double k)
         {
-            //direction-->true:由內而外找白點;false:由外而內找白點
-            List<System.Drawing.PointF> CircleFitLit = new List<System.Drawing.PointF>();
-            if (direction)
+            List<System.Drawing.PointF> CircleFitPoints = new List<System.Drawing.PointF>();
+            List<System.Drawing.PointF> CircleFilterPoints = new List<System.Drawing.PointF>();
+            for (int angle = 1; angle <= 360; angle++)
             {
-                for (int angle = 1; angle <= 360; angle++)
+                int start = direction ? 1 : Radius;
+                int end = direction ? Radius : 1;
+                int step = direction ? 1 : -1;
+                for (int i = start; direction ? i <= end : i >= end; i += step)
                 {
-                    for (int i = 1; i <= Radius; i++)
+                    int x = Convert.ToInt32(center.X + i * Math.Cos((Math.PI / 180) * angle));
+                    int y = Convert.ToInt32(center.Y - i * Math.Sin((Math.PI / 180) * angle));
+                    if (src.At<byte>(y, x) == 255) // color use At<Vec3b>(y, x)
                     {
-                        int x = Convert.ToInt32(center.X + i * Math.Cos((Math.PI / 180) * angle));
-                        int y = Convert.ToInt32(center.Y - i * Math.Sin((Math.PI / 180) * angle));
-                        if (src.At<byte>(y, x) == 255)//color use At<Vec3b>(y, x)
-                        {
-                            CircleFitLit.Add(new System.Drawing.PointF(x, y));
-                            break;
-                        }
+                        CircleFitPoints.Add(new System.Drawing.PointF(x, y));
+                        break;
                     }
                 }
             }
-            else
+            CircleFilterPoints = FCOutlier(CircleFitPoints, k);
+            if (CircleFilterPoints.Count >= 3)
             {
-                for (int angle = 1; angle <= 360; angle++)
+                foreach (var point in CircleFilterPoints)
                 {
-                    for (int i = Radius; i >= 1; i--)
-                    {
-                        int x = Convert.ToInt32(center.X + i * Math.Cos((Math.PI / 180) * angle));
-                        int y = Convert.ToInt32(center.Y - i * Math.Sin((Math.PI / 180) * angle));
-                        if (src.At<byte>(y, x) == 255)//color use At<Vec3b>(y, x)
-                        {
-                            CircleFitLit.Add(new System.Drawing.PointF(x, y));
-                            break;
-                        }
-                    }
+                    OpenCvSharp.Cv2.Circle(src, Convert.ToInt32(point.X), Convert.ToInt32(point.Y), 1, OpenCvSharp.Scalar.Blue, 1);
                 }
-            }
-            if (CircleFitLit.Count >= 3)
-            {
-                CircleFitLit = FCOutlier(CircleFitLit, tolerance);
-                if (CircleFitLit.Count >= 3)
-                {
-                    foreach (var point in CircleFitLit)
-                    {
-                        OpenCvSharp.Cv2.Circle(src, Convert.ToInt32(point.X), Convert.ToInt32(point.Y), 1, OpenCvSharp.Scalar.Blue, -1);
-                    }
-                    float CenterX;
-                    float CenterY;
-                    float CenterR;
-                    FitCircle(CircleFitLit, out CenterX, out CenterY, out CenterR);
-                    OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, (int)CenterY), 5, OpenCvSharp.Scalar.Green, -1);
-                    OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, (int)CenterY), (int)CenterR, OpenCvSharp.Scalar.Red, 1);
-                    OpenCvSharp.Cv2.ImWrite(@"Result.bmp", src);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                float CenterX;
+                float CenterY;
+                float CenterR;
+                FitCircle(CircleFilterPoints, out CenterX, out CenterY, out CenterR);
+                OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, (int)CenterY), 5, OpenCvSharp.Scalar.Green, -1);
+                OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, (int)CenterY), (int)CenterR, OpenCvSharp.Scalar.Red, 1);
+                OpenCvSharp.Cv2.ImWrite(@"E:\DIP Temp\Image Temp\Result.bmp", src);
+                return true;
             }
             else
             {
