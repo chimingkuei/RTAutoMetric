@@ -156,10 +156,12 @@ namespace RTAutoMetric
             }
             mask.canvas = myCanvas;
             ruler.canvas = myCanvas;
+            circle.canvas = myCanvas;
             arrow.canvas = myCanvas;
             mask.dispay = Display_Screen;
             ruler.dispay = Display_Screen;
             rect.dispay = Display_Screen;
+            circle.dispay = Display_Screen;
             arrow.dispay = Display_Screen;
         }
 
@@ -216,6 +218,8 @@ namespace RTAutoMetric
                 mask.MaskDown(e);
             if ((bool)RulerOnOff.IsChecked)
                 ruler.RulerDown(e);
+            if ((bool)CircleOnOff.IsChecked)
+                circle.CircleDown(e);
             if ((bool)ArrowOnOff.IsChecked)
                 arrow.ArrowDown(e);
         }
@@ -226,6 +230,8 @@ namespace RTAutoMetric
                 mask.MaskMove(e);
             if ((bool)RulerOnOff.IsChecked)
                 ruler.RulerMove(e);
+            if ((bool)CircleOnOff.IsChecked)
+                circle.CircleMove(e);
             if ((bool)ArrowOnOff.IsChecked)
                 arrow.ArrowMove(e);
         }
@@ -236,6 +242,8 @@ namespace RTAutoMetric
                 mask.MaskUp();
             if ((bool)RulerOnOff.IsChecked)
                 ruler.RulerUp();
+            if ((bool)CircleOnOff.IsChecked)
+                circle.CircleUp();
             if ((bool)ArrowOnOff.IsChecked)
                 arrow.ArrowUp();
         }
@@ -265,6 +273,7 @@ namespace RTAutoMetric
         MouseActions mask;
         MouseActions ruler = new MouseActions(10, 20, 5);
         MouseActions rect = new MouseActions();
+        MouseActions circle = new MouseActions();
         MouseActions arrow = new MouseActions();
         bool SelectedState = false;
         #region Log

@@ -83,6 +83,8 @@
                         <CheckBox x:Name="MagOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0" Click="Main_CheckBox_Click"/>
                         <Label x:Name="ArrowOnOff_Label" Content="Arrow開關︰" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-4,9,0,0"/>
                         <CheckBox x:Name="ArrowOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0" Click="Main_CheckBox_Click"/>
+                        <Label x:Name="CircleOnOff_Label" Content="Circle開關︰" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-4,9,0,0"/>
+                        <CheckBox x:Name="CircleOnOff" Style="{StaticResource BaseCheckBox}" Background="#5387b9" Content="Off" Tag="On" Margin="0,9,0,0" Click="Main_CheckBox_Click"/>
                     </WrapPanel>
                 </Grid>
             </TabItem>

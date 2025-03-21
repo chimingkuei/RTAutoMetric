@@ -610,6 +610,47 @@ namespace RTAutoMetric
         }
         #endregion
 
+        #region Draw Circle
+        public System.Windows.Shapes.Ellipse ellipse;
+        public bool CircleisDrawing = false;
+        public System.Windows.Point CirclestartPoint;
+
+        public  void CircleDown(MouseButtonEventArgs e)
+        {
+            if (!CircleisDrawing)
+            {
+                CircleisDrawing = true;
+                CirclestartPoint = e.GetPosition(canvas);
+                // 創建圓形元素
+                ellipse = new Ellipse
+                {
+                    Stroke = System.Windows.Media.Brushes.Red,
+                    StrokeThickness = 2
+                };
+                // 添加圓形到畫布
+                canvas.Children.Add(ellipse);
+            }
+        }
+
+        public void CircleMove(MouseEventArgs e)
+        {
+            if (ellipse == null || !CircleisDrawing) return;
+            System.Windows.Point currentPoint = e.GetPosition(canvas);
+            // 計算圓心與滑鼠位置的距離作為半徑
+            double radius = Math.Sqrt(Math.Pow(currentPoint.X - CirclestartPoint.X, 2) + Math.Pow(currentPoint.Y - CirclestartPoint.Y, 2));
+            // 設置圓形的大小和位置
+            ellipse.Width = radius * 2;
+            ellipse.Height = radius * 2;
+            Canvas.SetLeft(ellipse, CirclestartPoint.X - radius);
+            Canvas.SetTop(ellipse, CirclestartPoint.Y - radius);
+        }
+
+        public void CircleUp()
+        {
+            CircleisDrawing = false;
+        }
+        #endregion
+
         #region Draw Arrow
         private System.Windows.Shapes.Line blade;
         private Polygon swordHead;
