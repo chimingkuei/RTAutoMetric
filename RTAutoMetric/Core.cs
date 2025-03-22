@@ -100,13 +100,22 @@ namespace RTAutoMetric
             }
         }
 
+        public Mat ConvertBinaryInv(Mat img, double threshold)
+        {
+            Mat grayImg = new Mat();
+            Cv2.CvtColor(img, grayImg, ColorConversionCodes.BGR2GRAY);
+            Mat binaryInv = new Mat();
+            Cv2.Threshold(grayImg, binaryInv, threshold, 255, ThresholdTypes.BinaryInv);
+            return binaryInv;
+        }
+
         #region Fit Circle
         private double Cal2PtDist(PointF p1, PointF p2)
         {
             return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
         }
 
-        private void FitCircle(List<System.Drawing.PointF> pointFs, out float CenterX, out float CenterY, out float CenterR)
+        private void FitCircle(List<PointF> pointFs, out float CenterX, out float CenterY, out float CenterR)
         {
             Matrix<float> YMat;
             Matrix<float> RMat;
@@ -179,10 +188,13 @@ namespace RTAutoMetric
         /// <summary>
         /// direction-->true:由內而外找白點;false:由外而內找白點
         /// </summary>
-        public bool FCByWhiteDot(OpenCvSharp.Mat src, OpenCvSharp.Point center, int Radius, bool direction, double k)
+        public bool FCByWhiteDot(Mat src, int threshold, Point center, int Radius, bool direction, double k, bool saveImg = true)
         {
-            List<System.Drawing.PointF> CircleFitPoints = new List<System.Drawing.PointF>();
-            List<System.Drawing.PointF> CircleFilterPoints = new List<System.Drawing.PointF>();
+            Mat binaryInv = ConvertBinaryInv(src, threshold);
+            if (saveImg)
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binaryInv" + fileExtension), binaryInv);
+            List<PointF> fitCirclePoints = new List<PointF>();
+            List<PointF> filterCirclePoints = new List<PointF>();
             for (int angle = 1; angle <= 360; angle++)
             {
                 int start = direction ? 1 : Radius;
@@ -192,30 +204,36 @@ namespace RTAutoMetric
                 {
                     int x = Convert.ToInt32(center.X + i * Math.Cos((Math.PI / 180) * angle));
                     int y = Convert.ToInt32(center.Y - i * Math.Sin((Math.PI / 180) * angle));
-                    if (src.At<byte>(y, x) == 255) // color use At<Vec3b>(y, x)
+                    if (binaryInv.At<byte>(y, x) == 255) // color use At<Vec3b>(y, x)
                     {
-                        CircleFitPoints.Add(new System.Drawing.PointF(x, src.Height - y)); // 轉換為笛卡爾座標
+                        fitCirclePoints.Add(new PointF(x, src.Height - y)); // 轉換為笛卡爾座標
                         break;
                     }
                 }
             }
-            CircleFilterPoints = FCOutlier(CircleFitPoints, k);
-            if (CircleFilterPoints.Count >= 3)
+            filterCirclePoints = FCOutlier(fitCirclePoints, k);
+            if (filterCirclePoints.Count >= 3)
             {
-                // 在影像上標記過濾後的點(轉回影像座標)
-                foreach (var point in CircleFilterPoints)
+                if (saveImg)
                 {
-                    int imgX = (int)point.X;
-                    int imgY = src.Height - (int)point.Y;
-                    OpenCvSharp.Cv2.Circle(src, imgX, imgY, 1, OpenCvSharp.Scalar.Blue, 1);
+                    // 在影像上標記過濾後的點(轉回影像座標)
+                    foreach (var point in filterCirclePoints)
+                    {
+                        int imgX = (int)point.X;
+                        int imgY = src.Height - (int)point.Y;
+                        Cv2.Circle(src, imgX, imgY, 1, Scalar.Blue, 1);
+                    }
                 }
                 float CenterX, CenterY, CenterR;
-                FitCircle(CircleFilterPoints, out CenterX, out CenterY, out CenterR);
-                // 轉回影像座標
-                int imgCenterY = src.Height - (int)CenterY;
-                OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, imgCenterY), 5, OpenCvSharp.Scalar.Green, -1);
-                OpenCvSharp.Cv2.Circle(src, new OpenCvSharp.Point((int)CenterX, imgCenterY), (int)CenterR, OpenCvSharp.Scalar.Red, 1);
-                OpenCvSharp.Cv2.ImWrite(@"E:\DIP Temp\Image Temp\Result.bmp", src);
+                FitCircle(filterCirclePoints, out CenterX, out CenterY, out CenterR);
+                if (saveImg)
+                {
+                    // 轉回影像座標
+                    int imgCenterY = src.Height - (int)CenterY;
+                    Cv2.Circle(src, new Point((int)CenterX, imgCenterY), 5, Scalar.Green, -1);
+                    Cv2.Circle(src, new Point((int)CenterX, imgCenterY), (int)CenterR, Scalar.Red, 1);
+                    Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), src);
+                }
                 return true;
             }
             else
@@ -226,15 +244,14 @@ namespace RTAutoMetric
         #endregion
 
         #region Fit Line
-        private bool IsWhite(Mat img, Point p)
+        private bool IsWhite(Mat src, Point p)
         {
-            if (p.X < 0 || p.X >= img.Cols || p.Y < 0 || p.Y >= img.Rows)
+            if (p.X < 0 || p.X >= src.Cols || p.Y < 0 || p.Y >= src.Rows)
                 return false;
-
-            return img.At<byte>(p.Y, p.X) == 255;
+            return src.At<byte>(p.Y, p.X) == 255;
         }
 
-        private Point? FLNearestWhite(Mat img, Point start, int nx, int ny, int maxDist, bool direction)
+        private Point? FLNearestWhite(Mat src, Point start, int nx, int ny, int maxDist, bool direction)
         {
             int x = start.X;
             int y = start.Y;
@@ -243,20 +260,20 @@ namespace RTAutoMetric
             {
                 x = start.X + d * nx * step;
                 y = start.Y + d * ny * step;
-                if (x < 0 || x >= img.Width || y < 0 || y >= img.Height)
+                if (x < 0 || x >= src.Width || y < 0 || y >= src.Height)
                     break;
                 Point p = new Point(x, y);
-                if (IsWhite(img, p))
+                if (IsWhite(src, p))
                     return p;
             }
             return null;
         }
 
-        private (Point startPoint, Point endPoint) FitLine(List<Point> points, Mat img, bool extendToBorders)
+        private (Point startPoint, Point endPoint) FitLine(List<Point> points, Mat src, bool extendToBorders)
         {
             // 轉換影像座標點為數學坐標系 (Y = img.Height - Y)
             var x = points.Select(p => (double)p.X).ToArray();
-            var y = points.Select(p => (double)(img.Height - p.Y)).ToArray();
+            var y = points.Select(p => (double)(src.Height - p.Y)).ToArray();
             // 使用 MathNet.Numerics 進行最小二乘法擬合直線
             var result = Fit.Line(x, y);
             double intercept = result.Item1; // 截距
@@ -270,7 +287,7 @@ namespace RTAutoMetric
             {
                 // 影像的左右邊界
                 xMin = 0;
-                xMax = img.Width - 1;
+                xMax = src.Width - 1;
             }
             else
             {
@@ -282,25 +299,20 @@ namespace RTAutoMetric
             double yMinMath = slope * xMin + intercept;
             double yMaxMath = slope * xMax + intercept;
             // 轉換數學座標系的 y 值回影像座標系 (Y = img.Height - Y)
-            double yMin = img.Height - yMinMath;
-            double yMax = img.Height - yMaxMath;
+            double yMin = src.Height - yMinMath;
+            double yMax = src.Height - yMaxMath;
             // 確保 y 值在影像範圍內
-            yMin = Math.Max(0, Math.Min(yMin, img.Height - 1));
-            yMax = Math.Max(0, Math.Min(yMax, img.Height - 1));
+            yMin = Math.Max(0, Math.Min(yMin, src.Height - 1));
+            yMax = Math.Max(0, Math.Min(yMax, src.Height - 1));
             return (new Point((int)xMin, (int)yMin), new Point((int)xMax, (int)yMax));
-            //// 畫出擬合的線段或完整直線 (藍色, 寬度 5)
-            //Cv2.Line(img, new Point((int)xMin, (int)yMin), new Point((int)xMax, (int)yMax), Scalar.Blue, 5);
         }
 
-        public void FLByWhiteDot(Mat img, int threshold, Tuple<Point, Point> line, int stepSize, int maxDist, bool direction, bool saveImg = true)
+        public void FLByWhiteDot(Mat src, int threshold, Tuple<Point, Point> line, int stepSize, int maxDist, bool direction, bool saveImg = true)
         {
-            Mat grayImg = new Mat();
-            Cv2.CvtColor(img, grayImg, ColorConversionCodes.BGR2GRAY);
-            Mat binaryInv = new Mat();
-            Cv2.Threshold(grayImg, binaryInv, threshold, 255, ThresholdTypes.BinaryInv);
+            Mat binaryInv = ConvertBinaryInv(src, threshold);
             if (saveImg)
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binary" + fileExtension), binaryInv);
-            List<Point> LineFitPoints = new List<Point>();
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binaryInv" + fileExtension), binaryInv);
+            List<Point> fitLinePoints = new List<Point>();
             Point p1 = line.Item1;
             Point p2 = line.Item2;
             int dx = p2.X - p1.X;
@@ -318,32 +330,33 @@ namespace RTAutoMetric
                 int x = p1.X + i * dx / steps;
                 int y = p1.Y + i * dy / steps;
                 Point start = new Point(x, y);
-                // 標記採樣點 (綠色)
+                // 標記採樣點
                 if (saveImg)
-                    Cv2.Circle(img, start, 2, Scalar.Brown, -1);
-                // 沿單一方向前進尋找白點
+                    Cv2.Circle(src, start, 2, Scalar.Green, -1);
+                // 前進尋找白點
                 Point? whitePoint = FLNearestWhite(binaryInv, start, nx, ny, maxDist, direction);
                 if (whitePoint.HasValue)
                 {
-                    LineFitPoints.Add(whitePoint.Value);
-                    Cv2.Circle(img, whitePoint.Value, 3, Scalar.Red, -1);
+                    fitLinePoints.Add(whitePoint.Value);
+                    Cv2.Circle(src, whitePoint.Value, 3, Scalar.Red, -1);
                 }
                 Point end = new Point(start.X + (direction ? 1 : -1) * maxDist * nx,
                                       start.Y + (direction ? 1 : -1) * maxDist * ny);
                 // 畫出搜尋路徑 (黃色)
                 if (saveImg)
-                    Cv2.Line(img, start, end, Scalar.Yellow, 1);
+                    Cv2.Line(src, start, end, Scalar.Yellow, 1);
             }
-            if (LineFitPoints.Count < 2)
+            if (fitLinePoints.Count < 2)
             {
                 Console.WriteLine("Not enough points to fit a line.");
                 return;
             }
-            (Point startPoint, Point endPoint)= FitLine(LineFitPoints, img, direction);
+            (Point startPoint, Point endPoint)= FitLine(fitLinePoints, src, direction);
             if (saveImg)
-                Cv2.Line(img, startPoint, endPoint, Scalar.Blue, 5);
-            if (saveImg)
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), img);
+            {
+                Cv2.Line(src, startPoint, endPoint, Scalar.Blue, 2);
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), src);
+            }
         }
         #endregion
 
