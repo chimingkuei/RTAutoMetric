@@ -319,10 +319,23 @@ namespace RTAutoMetric
                 case nameof(Save_Config):
                     {
                         //SaveConfig(0, 0);
-                        string imagePath = @"E:\DIP Temp\Image Temp\202503171452484219_WaterHole1.bmp";
-                        Mat image = Cv2.ImRead(imagePath, ImreadModes.Color);
-                        OpenCvSharp.Point center = new OpenCvSharp.Point(600, 600);
-                        Do.FCByWhiteDot(image, center, 200, false, 0.1);
+                        //string imagePath = @"E:\DIP Temp\Image Temp\202503171452484219_WaterHole1.bmp";
+                        //Mat image = Cv2.ImRead(imagePath, ImreadModes.Color);
+                        //OpenCvSharp.Point center = new OpenCvSharp.Point(600, 600);
+                        //Do.FCByWhiteDot(image, center, 200, false, 0.1);
+
+
+                        Do.outputFolder = @"E:\DIP Temp\Image Temp";
+                        Do.fileName = @"E:\DIP Temp\Image Temp\202503171452484219_WaterHole1_.bmp";
+                        Do.fileExtension = ".bmp";
+                        Mat img = Cv2.ImRead(Do.fileName, ImreadModes.Color);
+                        OpenCvSharp.Point p1 = new OpenCvSharp.Point(685, 275);
+                        OpenCvSharp.Point p2 = new OpenCvSharp.Point(773, 304);
+                        Tuple<OpenCvSharp.Point, OpenCvSharp.Point> line = Tuple.Create(p1, p2);
+                        int stepSize = 1; // 沿線段取樣間隔
+                        int searchDistance = 500; // 垂直搜尋距離
+                        //Cv2.Line(img, p1, p2, Scalar.Blue, 2);
+                        Do.FLByWhiteDot(img, 230, line, stepSize, searchDistance, true);
                         break;
                     }
             }
