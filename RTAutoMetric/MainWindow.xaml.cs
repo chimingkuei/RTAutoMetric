@@ -31,6 +31,7 @@ using netDxf.Entities;
 using Xceed.Wpf.Toolkit;
 using Microsoft.Win32;
 using System.Windows.Interop;
+using static netDxf.Entities.HatchBoundaryPath;
 
 
 namespace RTAutoMetric
@@ -318,7 +319,16 @@ namespace RTAutoMetric
                     }
                 case nameof(Save_Config):
                     {
-                        SaveConfig(0, 0);
+                        //SaveConfig(0, 0);
+
+                        Tuple<OpenCvSharp.Point, OpenCvSharp.Point> line = new Tuple<OpenCvSharp.Point, OpenCvSharp.Point>(new OpenCvSharp.Point(500, 150), new OpenCvSharp.Point(750, 250)); // 定義線段
+                        int stepSize = 1;   // 採樣間隔
+                        int maxDist = 500;    // 最大搜尋距離
+                        Do.outputFolder = @"E:\DIP Temp\Image Temp";
+                        Do.fileName = @"E:\DIP Temp\Image Temp\202503041745086657_WaterHole1.bmp";
+                        Do.fileExtension = ".bmp";
+                        Mat src = Cv2.ImRead(Do.fileName);
+                        Do.FLByWhiteDot(src, 230, line, stepSize, maxDist, true, -1);
                         break;
                     }
             }

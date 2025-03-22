@@ -173,12 +173,48 @@ namespace RTAutoMetric
             return (new Point((int)xMin, (int)yMin), new Point((int)xMax, (int)yMax));
         }
 
-        public void FLByWhiteDot(Mat src, int threshold, Tuple<Point, Point> line, int stepSize, int maxDist, bool direction, bool saveImg = true)
+        private double Cal2PtDist(Point p1, Point p2)
+        {
+            return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
+        }
+
+        private List<Point> FLOutlier(List<Point> points, double k)
+        {
+            if (k == -1)
+                return points;
+            // 計算每個點與其他點的距離
+            List<double> distances = new List<double>();
+            for (int i = 0; i < points.Count; i++)
+            {
+                for (int j = i + 1; j < points.Count; j++)
+                {
+                    double distance = Cal2PtDist(points[i], points[j]);
+                    distances.Add(distance);
+                }
+            }
+            // 計算平均距離和標準差
+            double meanDistance = distances.Average();
+            double stdDevDistance = Math.Sqrt(distances.Average(d => Math.Pow(d - meanDistance, 2)));
+            // 計算閾值
+            double threshold = meanDistance + k * stdDevDistance;
+            // 過濾離群點，根據與其他點的平均距離來剔除
+            var filteredPoints = points.Where(p =>
+            {
+                // 計算當前點與其他點的平均距離
+                double avgDistance = points.Where(other => !other.Equals(p))
+                                            .Average(other => Cal2PtDist(p, other));
+                return avgDistance <= threshold;  // 只保留在閾值內的點
+            }).ToList();
+            return filteredPoints;
+        }
+
+        public void FLByWhiteDot(Mat src, int threshold, Tuple<Point, Point> line, int stepSize, int maxDist, bool direction, double k, bool saveImg = true)
         {
             Mat binaryInv = ConvertBinaryInv(src, threshold);
             if (saveImg)
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binaryInv" + fileExtension), binaryInv);
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(fileName) + "_binaryInv" + fileExtension), binaryInv);
             List<Point> fitLinePoints = new List<Point>();
+            List<Point> filterLinePoints;
             Point p1 = line.Item1;
             Point p2 = line.Item2;
             int dx = p2.X - p1.X;
@@ -212,16 +248,17 @@ namespace RTAutoMetric
                 if (saveImg)
                     Cv2.Line(src, start, end, Scalar.Yellow, 1);
             }
-            if (fitLinePoints.Count < 2)
+            filterLinePoints = FLOutlier(fitLinePoints, k);
+            if (filterLinePoints.Count < 2)
             {
                 Console.WriteLine("Not enough points to fit a line.");
                 return;
             }
-            (Point startPoint, Point endPoint)= FitLine(fitLinePoints, src, direction);
+            (Point startPoint, Point endPoint)= FitLine(filterLinePoints, src, direction);
             if (saveImg)
             {
                 Cv2.Line(src, startPoint, endPoint, Scalar.Blue, 2);
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), src);
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(fileName) + "_Result" + fileExtension), src);
             }
         }
         #endregion
@@ -276,6 +313,8 @@ namespace RTAutoMetric
         /// </summary>
         private List<PointF> FCOutlier(List<PointF> points, double k)
         {
+            if (k == -1)
+                return points;
             // 計算每個點與其他點的距離
             List<double> distances = new List<double>();
             for (int i = 0; i < points.Count; i++)
@@ -309,9 +348,9 @@ namespace RTAutoMetric
         {
             Mat binaryInv = ConvertBinaryInv(src, threshold);
             if (saveImg)
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binaryInv" + fileExtension), binaryInv);
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(fileName) + "_binaryInv" + fileExtension), binaryInv);
             List<PointF> fitCirclePoints = new List<PointF>();
-            List<PointF> filterCirclePoints = new List<PointF>();
+            List<PointF> filterCirclePoints;
             for (int angle = 1; angle <= 360; angle++)
             {
                 int start = direction ? 1 : Radius;
@@ -349,7 +388,7 @@ namespace RTAutoMetric
                     int imgCenterY = src.Height - (int)CenterY;
                     Cv2.Circle(src, new Point((int)CenterX, imgCenterY), 5, Scalar.Green, -1);
                     Cv2.Circle(src, new Point((int)CenterX, imgCenterY), (int)CenterR, Scalar.Red, 1);
-                    Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), src);
+                    Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(fileName) +"_Result" + fileExtension), src);
                 }
                 return true;
             }
