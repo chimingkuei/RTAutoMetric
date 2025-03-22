@@ -109,6 +109,123 @@ namespace RTAutoMetric
             return binaryInv;
         }
 
+        #region Fit Line
+        private bool IsWhite(Mat src, Point p)
+        {
+            if (p.X < 0 || p.X >= src.Cols || p.Y < 0 || p.Y >= src.Rows)
+                return false;
+            return src.At<byte>(p.Y, p.X) == 255;
+        }
+
+        private Point? FLNearestWhite(Mat src, Point start, int nx, int ny, int maxDist, bool direction)
+        {
+            int x = start.X;
+            int y = start.Y;
+            int step = direction ? 1 : -1;
+            for (int d = 1; d <= maxDist; d++)
+            {
+                x = start.X + d * nx * step;
+                y = start.Y + d * ny * step;
+                if (x < 0 || x >= src.Width || y < 0 || y >= src.Height)
+                    break;
+                Point p = new Point(x, y);
+                if (IsWhite(src, p))
+                    return p;
+            }
+            return null;
+        }
+
+        private (Point startPoint, Point endPoint) FitLine(List<Point> points, Mat src, bool extendToBorders)
+        {
+            // 轉換影像座標點為數學坐標系 (Y = img.Height - Y)
+            var x = points.Select(p => (double)p.X).ToArray();
+            var y = points.Select(p => (double)(src.Height - p.Y)).ToArray();
+            // 使用 MathNet.Numerics 進行最小二乘法擬合直線
+            var result = Fit.Line(x, y);
+            double intercept = result.Item1; // 截距
+            double slope = result.Item2; // 斜率
+            // 輸出斜率和截距
+            Console.WriteLine($"斜率: {slope}");
+            Console.WriteLine($"截距: {intercept}");
+            // 計算 x 範圍
+            double xMin, xMax;
+            if (extendToBorders)
+            {
+                // 影像的左右邊界
+                xMin = 0;
+                xMax = src.Width - 1;
+            }
+            else
+            {
+                // 只在輸入點的範圍內畫線
+                xMin = x.Min();
+                xMax = x.Max();
+            }
+            // 根據擬合的直線公式計算對應的 y 值
+            double yMinMath = slope * xMin + intercept;
+            double yMaxMath = slope * xMax + intercept;
+            // 轉換數學座標系的 y 值回影像座標系 (Y = img.Height - Y)
+            double yMin = src.Height - yMinMath;
+            double yMax = src.Height - yMaxMath;
+            // 確保 y 值在影像範圍內
+            yMin = Math.Max(0, Math.Min(yMin, src.Height - 1));
+            yMax = Math.Max(0, Math.Min(yMax, src.Height - 1));
+            return (new Point((int)xMin, (int)yMin), new Point((int)xMax, (int)yMax));
+        }
+
+        public void FLByWhiteDot(Mat src, int threshold, Tuple<Point, Point> line, int stepSize, int maxDist, bool direction, bool saveImg = true)
+        {
+            Mat binaryInv = ConvertBinaryInv(src, threshold);
+            if (saveImg)
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binaryInv" + fileExtension), binaryInv);
+            List<Point> fitLinePoints = new List<Point>();
+            Point p1 = line.Item1;
+            Point p2 = line.Item2;
+            int dx = p2.X - p1.X;
+            int dy = p2.Y - p1.Y;
+            double length = Math.Sqrt(dx * dx + dy * dy);
+            // 計算法向量（確保方向正確）
+            double nxf = -dy / length;
+            double nyf = dx / length;
+            int nx = (int)Math.Round(nxf);
+            int ny = (int)Math.Round(nyf);
+            // 沿著線段取樣
+            int steps = (int)(length / stepSize);
+            for (int i = 0; i <= steps; i++)
+            {
+                int x = p1.X + i * dx / steps;
+                int y = p1.Y + i * dy / steps;
+                Point start = new Point(x, y);
+                // 標記採樣點
+                if (saveImg)
+                    Cv2.Circle(src, start, 2, Scalar.Green, -1);
+                // 前進尋找白點
+                Point? whitePoint = FLNearestWhite(binaryInv, start, nx, ny, maxDist, direction);
+                if (whitePoint.HasValue)
+                {
+                    fitLinePoints.Add(whitePoint.Value);
+                    Cv2.Circle(src, whitePoint.Value, 3, Scalar.Red, -1);
+                }
+                Point end = new Point(start.X + (direction ? 1 : -1) * maxDist * nx,
+                                      start.Y + (direction ? 1 : -1) * maxDist * ny);
+                // 畫出搜尋路徑 (黃色)
+                if (saveImg)
+                    Cv2.Line(src, start, end, Scalar.Yellow, 1);
+            }
+            if (fitLinePoints.Count < 2)
+            {
+                Console.WriteLine("Not enough points to fit a line.");
+                return;
+            }
+            (Point startPoint, Point endPoint)= FitLine(fitLinePoints, src, direction);
+            if (saveImg)
+            {
+                Cv2.Line(src, startPoint, endPoint, Scalar.Blue, 2);
+                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), src);
+            }
+        }
+        #endregion
+
         #region Fit Circle
         private double Cal2PtDist(PointF p1, PointF p2)
         {
@@ -239,123 +356,6 @@ namespace RTAutoMetric
             else
             {
                 return false;
-            }
-        }
-        #endregion
-
-        #region Fit Line
-        private bool IsWhite(Mat src, Point p)
-        {
-            if (p.X < 0 || p.X >= src.Cols || p.Y < 0 || p.Y >= src.Rows)
-                return false;
-            return src.At<byte>(p.Y, p.X) == 255;
-        }
-
-        private Point? FLNearestWhite(Mat src, Point start, int nx, int ny, int maxDist, bool direction)
-        {
-            int x = start.X;
-            int y = start.Y;
-            int step = direction ? 1 : -1;
-            for (int d = 1; d <= maxDist; d++)
-            {
-                x = start.X + d * nx * step;
-                y = start.Y + d * ny * step;
-                if (x < 0 || x >= src.Width || y < 0 || y >= src.Height)
-                    break;
-                Point p = new Point(x, y);
-                if (IsWhite(src, p))
-                    return p;
-            }
-            return null;
-        }
-
-        private (Point startPoint, Point endPoint) FitLine(List<Point> points, Mat src, bool extendToBorders)
-        {
-            // 轉換影像座標點為數學坐標系 (Y = img.Height - Y)
-            var x = points.Select(p => (double)p.X).ToArray();
-            var y = points.Select(p => (double)(src.Height - p.Y)).ToArray();
-            // 使用 MathNet.Numerics 進行最小二乘法擬合直線
-            var result = Fit.Line(x, y);
-            double intercept = result.Item1; // 截距
-            double slope = result.Item2; // 斜率
-            // 輸出斜率和截距
-            Console.WriteLine($"斜率: {slope}");
-            Console.WriteLine($"截距: {intercept}");
-            // 計算 x 範圍
-            double xMin, xMax;
-            if (extendToBorders)
-            {
-                // 影像的左右邊界
-                xMin = 0;
-                xMax = src.Width - 1;
-            }
-            else
-            {
-                // 只在輸入點的範圍內畫線
-                xMin = x.Min();
-                xMax = x.Max();
-            }
-            // 根據擬合的直線公式計算對應的 y 值
-            double yMinMath = slope * xMin + intercept;
-            double yMaxMath = slope * xMax + intercept;
-            // 轉換數學座標系的 y 值回影像座標系 (Y = img.Height - Y)
-            double yMin = src.Height - yMinMath;
-            double yMax = src.Height - yMaxMath;
-            // 確保 y 值在影像範圍內
-            yMin = Math.Max(0, Math.Min(yMin, src.Height - 1));
-            yMax = Math.Max(0, Math.Min(yMax, src.Height - 1));
-            return (new Point((int)xMin, (int)yMin), new Point((int)xMax, (int)yMax));
-        }
-
-        public void FLByWhiteDot(Mat src, int threshold, Tuple<Point, Point> line, int stepSize, int maxDist, bool direction, bool saveImg = true)
-        {
-            Mat binaryInv = ConvertBinaryInv(src, threshold);
-            if (saveImg)
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + "_binaryInv" + fileExtension), binaryInv);
-            List<Point> fitLinePoints = new List<Point>();
-            Point p1 = line.Item1;
-            Point p2 = line.Item2;
-            int dx = p2.X - p1.X;
-            int dy = p2.Y - p1.Y;
-            double length = Math.Sqrt(dx * dx + dy * dy);
-            // 計算法向量（確保方向正確）
-            double nxf = -dy / length;
-            double nyf = dx / length;
-            int nx = (int)Math.Round(nxf);
-            int ny = (int)Math.Round(nyf);
-            // 沿著線段取樣
-            int steps = (int)(length / stepSize);
-            for (int i = 0; i <= steps; i++)
-            {
-                int x = p1.X + i * dx / steps;
-                int y = p1.Y + i * dy / steps;
-                Point start = new Point(x, y);
-                // 標記採樣點
-                if (saveImg)
-                    Cv2.Circle(src, start, 2, Scalar.Green, -1);
-                // 前進尋找白點
-                Point? whitePoint = FLNearestWhite(binaryInv, start, nx, ny, maxDist, direction);
-                if (whitePoint.HasValue)
-                {
-                    fitLinePoints.Add(whitePoint.Value);
-                    Cv2.Circle(src, whitePoint.Value, 3, Scalar.Red, -1);
-                }
-                Point end = new Point(start.X + (direction ? 1 : -1) * maxDist * nx,
-                                      start.Y + (direction ? 1 : -1) * maxDist * ny);
-                // 畫出搜尋路徑 (黃色)
-                if (saveImg)
-                    Cv2.Line(src, start, end, Scalar.Yellow, 1);
-            }
-            if (fitLinePoints.Count < 2)
-            {
-                Console.WriteLine("Not enough points to fit a line.");
-                return;
-            }
-            (Point startPoint, Point endPoint)= FitLine(fitLinePoints, src, direction);
-            if (saveImg)
-            {
-                Cv2.Line(src, startPoint, endPoint, Scalar.Blue, 2);
-                Cv2.ImWrite(Path.Combine(outputFolder, Path.GetFileName(fileName) + fileExtension), src);
             }
         }
         #endregion
